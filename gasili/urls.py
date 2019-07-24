@@ -19,5 +19,6 @@ import board.views;
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',board.views.board_main, name="board_main"),
+    path('', board.views.board_main, name="board_main"),
+    path('custom/', board.views.board_custom, name="board_custom"),
 ]

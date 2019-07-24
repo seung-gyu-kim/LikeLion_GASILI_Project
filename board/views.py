@@ -4,3 +4,6 @@ from django.shortcuts import render
 
 def board_main(request) :
     return render(request,'board_main.html')
+
+def board_custom(request) :
+    return render(request,'board_custom.html')
