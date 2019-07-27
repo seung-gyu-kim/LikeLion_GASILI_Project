@@ -1,0 +1,14 @@
+{% if error %}
+{{ error }}
+<br>
+<br>
+{% endif %}
+
+<h1>Login</h1>
+
+<form method="POST" action="{% url 'login'%}">
+    {% csrf_token %}
+    아이디(ID): <input name="username" type="text" value=""><br>
+    비밀번호(Password): <input name="password" type="password" value=""><br>
+    <br><input class="btn btn-primary" type="submit" value="Login">
+</form>

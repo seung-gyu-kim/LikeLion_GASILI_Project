@@ -1,0 +1,30 @@
+<head>
+    <title>update</title>
+    <script language="javascript">
+        function showPopup() { window.open("{%url 'changePassword'%}", "a", "width=400, height=300, left=100, top=50");}
+    </script>
+</head>
+
+{% if error %}
+{{ error }}
+<br>
+<br>
+{% endif %}
+
+<h1>Update!</h1>
+<form method="POST" action="{% url 'update'%}">
+
+    {% csrf_token %}
+    아이디(ID): {{ user.username }}<br>
+    
+    성별(Gender): {% if user.gender == "W" %} 여성(Woman) {% else %} 남성(Man) {% endif %}<br>
+    성(Last Name): {{ user.last_name }}<br>
+    이름(First Name): {{ user.first_name }}<br>
+    생년월일(birthdate): {{ user.birthdate | date:'c'}}<br>
+    <br>
+    비밀번호(Password): <input name="changingPassword" type="button" value="비밀번호 바꾸기" onclick="showPopup();"><br>
+    <br>
+    닉네임(Nickname): <input name="nickName" type="text" value="{{ user.nickname }}"><br>
+    <br>
+    <input class="btn btn-primary" type="submit" value="Update!">
+</form>
