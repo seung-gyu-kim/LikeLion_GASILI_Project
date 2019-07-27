@@ -22,3 +22,12 @@ urlpatterns = [
     path('', board.views.board_main, name="board_main"),
     path('custom/', board.views.board_custom, name="board_custom"),
 ]
+=======
+import chart.views
+import home.views
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', home.views.index, name='index'),
+]
+>>>>>>> 3e26d375a190b814b6186255f860d8fd1c384fa9

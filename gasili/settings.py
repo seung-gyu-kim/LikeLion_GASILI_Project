@@ -37,7 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+<<<<<<< HEAD
     'board.apps.BoardConfig',
+=======
+    'chart.apps.ChartConfig',
+    'home.apps.HomeConfig',
+>>>>>>> 3e26d375a190b814b6186255f860d8fd1c384fa9
 ]
 
 MIDDLEWARE = [
