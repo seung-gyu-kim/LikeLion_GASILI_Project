@@ -95,7 +95,7 @@
         border-radius: 5px;
         padding:7px;
         margin:25px 20px 10px 10px;
-        border:1.5px solid rgb(255,192,0);
+        border:2px solid rgb(255, 166, 0);
         background: linear-gradient( to bottom,rgb(252, 236, 190), rgb(255, 209, 70) );
         height:300px;
       }
@@ -143,10 +143,10 @@
 
 
 <body>
-    
+  {% load staticfiles %}
   <div class="mynavbar">
     <div class="row">
-      <div class="col-md-auto" style="margin-left:35px;"><img src="..." href='index.html'height="40px" width="40px" alter="로고"></div>    
+      <div class="col-md-auto" style="margin-left:35px;"><img src="{% static '로고.PNG' %}" href='index.html'height="40px" width="40px" alter="로고" style="margin:5px;"></div>    
       <div class="col-sm-3 col-md-3">
           <form class="navbar-form" role="search">
           <div class="input-group">
