@@ -20,4 +20,6 @@ import chart.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', chart.views.chart, name='chart'),
+import home.views
+    path('', home.views.index, name='index'),
 ]
