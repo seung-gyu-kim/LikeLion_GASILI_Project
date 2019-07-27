@@ -3,9 +3,6 @@ from .models import CustomUser
 from django.contrib import auth
 
 # Create your views here.
-def home(request):
-    return render(request, 'accounts/home.html')
-
 def signup(request):
     if request.method == 'POST':
         for key in request.POST:
@@ -37,7 +34,7 @@ def signup(request):
                         is_staff=boolValue,
                         is_superuser=boolValue)
                     auth.login(request, user)
-                    return redirect('home')
+                    return redirect('index')
         else:
             return render(request, 'accounts/signup.html', {'error': '비밀번호가 일치하지 않습니다.'})
     else:
@@ -51,7 +48,7 @@ def login(request):
         user = auth.authenticate(request, username=username, password=password)
         if user is not None:
             auth.login(request, user)
-            return redirect('home')
+            return redirect('index')
         else:
             return render(request, 'accounts/login.html', {'error': '아이디 혹은 비밀번호가 틀렸습니다.'})
     else:
@@ -60,12 +57,12 @@ def login(request):
 def logout(request):
     if request.method == 'POST':
         auth.logout(request)
-        return redirect('home')
+        return redirect('index')
     return render(request, 'accounts/signup.html')
 
 def update(request):
     if request.method == "GET" and request.user.is_authenticated:   # 로그인 상태로 update 접속 시
-        return render(request, 'accounts/update.html', {'user': request.user})
+        return render(request, 'accounts/update.html')
     elif request.method == "POST":  # update 제출 시 달라진 부분 회원 정보 수정
         # if request.user.username != request.POST['username']:
         #     try:
@@ -88,7 +85,7 @@ def update(request):
             except CustomUser.DoesNotExist:
                 request.user.nickname=request.POST['nickName']
         request.user.save()
-        return redirect('home')
+        return redirect('index')
     else:   # 로그인하지 않았을 시
         return render(request, 'accounts/login.html')
 

@@ -1,25 +1,44 @@
-{% if error %}
-{{ error }}
-<br>
-<br>
-{% endif %}
+{% extends 'base.html' %}
 
-<h1>Sign Up!</h1>
+{% block content %}
+<div class="container-fluid row" style="width:100%; margin:0; padding:0;">
+    <div class="containerleft">
+    </div>
+    <div class="containerbody">
+        <div class="container" style="margin:0,25px,25px,25px; width:100%;">
+            <section id="recently">
+                <div class="col">
+                    <div class="row">
+                        <div style="border-radius: 5px; border:1px dashed rgb(91,155,213); width:100%; ">
+                            {% if error %}
+                            {{ error }}
+                            <br>
+                            <br>
+                            {% endif %}
 
-<form method="POST" action="{% url 'signup'%}">
+                            <h1>Sign Up!</h1>
 
-    {% csrf_token %}
-    아이디(ID): <input name="username" type="text" value=""><br>
-    비밀번호(Password): <input name="password1" type="password" value=""><br>
-    비밀번호 확인(Confirm Password): <input name="password2" type="password" value=""><br>
-    성별(Gender): <INPUT TYPE=RADIO NAME="gender" VALUE="M"> 남성(Man)
-    <INPUT TYPE=RADIO NAME="gender" VALUE="W"> 여성(Woman)<br>
-    성(Last Name):<input name="lastName" type="text" value=""><br>
-    이름(First Name): <input name="firstName" type="text" value=""><br>
-    생년월일(birthdate): <input name="birthdate" type="date" value=""><br>
-    닉네임(Nickname): <input name="nickName" type="text" value=""><br>
-    관리자아이디여부: <input name="is_superuser" type="checkbox" value="is_superuser"><br>
-
-    <br>
-    <input class="btn btn-primary" type="submit" value="Sign Up!">
-</form>
+                            <form method="POST" action="{% url 'signup'%}">
+                                {% csrf_token %}
+                                <br>아이디(ID): <input name="username" type="text" value=""><br>
+                                <br>비밀번호(Password): <input name="password1" type="password" value=""><br>
+                                <br>비밀번호 확인(Confirm Password): <input name="password2" type="password" value=""><br>
+                                <br>성별(Gender): <INPUT TYPE=RADIO NAME="gender" VALUE="M"> 남성(Man)
+                                <INPUT TYPE=RADIO NAME="gender" VALUE="W"> 여성(Woman)<br>
+                                <br>성(Last Name):<input name="lastName" type="text" value=""><br>
+                                <br>이름(First Name): <input name="firstName" type="text" value=""><br>
+                                <br>생년월일(birthdate): <input name="birthdate" type="date" value=""><br>
+                                <br>닉네임(Nickname): <input name="nickName" type="text" value=""><br>
+                                <br>관리자아이디여부: <input name="is_superuser" type="checkbox" value="is_superuser"><br>
+                                <br>
+                                <input class="btn btn-primary" type="submit" value="Sign Up!">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="containerright"></div>
+</div>
+{% endblock %}

@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'chart.apps.ChartConfig',
+    'home.apps.HomeConfig',
 ]
 
 MIDDLEWARE = [
@@ -56,6 +58,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [],
+        'DIRS': ['gasili/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
