@@ -17,8 +17,10 @@ from django.contrib import admin
 from django.urls import path
 import chart.views
 import home.views
+import board.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home.views.index, name='index'),
+    path('board_create/',board.views.board_create, name="board_create")
 ]

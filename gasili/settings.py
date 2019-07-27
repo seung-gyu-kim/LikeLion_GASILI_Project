@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'chart.apps.ChartConfig',
     'home.apps.HomeConfig',
+    'board.apps.BoardConfig'
 ]
 
 MIDDLEWARE = [
