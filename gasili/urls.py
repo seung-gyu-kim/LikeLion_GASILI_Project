@@ -20,6 +20,5 @@ import home.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', chart.views.chart, name='chart'),
     path('', home.views.index, name='index'),
 ]
