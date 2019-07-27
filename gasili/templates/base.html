@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <!--웹페이지의 크기 지정, 웹 페이지의 크기가 스마트폰의 실제 액정 크기를 따라가도록,  보여지는 화면의 zoom up 정도를 1배율로,마지막은 사파리 브라우저에 사용되는 속성-->
+  <meta name="description" content="">
+  <!-- 이건 검색엔진에서 content 내용으로 검색했을 때 연관되어 뜰 수 있도록 하는 정보-->
+  <meta name="author" content="">
+
+  <title>GASILI</title>
+
+  <!-- bootstrap css, js link-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  
+
+  <!--searchbar link-->
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <!--fontstylelink-->
+  <link href="https://fonts.googleapis.com/css?family=Gamja+Flower&display=swap&subset=korean" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Single+Day&display=swap&subset=korean" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Hi+Melody&display=swap&subset=korean" rel="stylesheet">
+
+  
+  <style>
+    
+  .searchcolor{
+    background-color:rgb(243,106,95);
+    border:1.5px solid rgb(240,69,56);
+  }
+  .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default {
+    color: #333;
+    background-color: rgb(255, 180, 175);
+    border-color: #e92b2b;
+}
+  .mynavbar{
+    background-color:rgb(240,69,56);
+    width: 100%;
+    height:50px;
+    top:0;
+    left:0;
+    border-radius: 0 0 10px 10px;
+  }
+  .categorystyle{
+    position: relative;
+    left:15px;
+    width:99px;
+    height:30px;
+    top:-10px;
+    border-radius: 0 0 5px 5px;
+    background-color:rgb(112,173,71);
+    
+  }
+  .navitems{
+    color:white;
+    display:block;
+    padding:10px 16px;
+  }
+  .navitems:hover{
+    font-weight:500;
+    text-decoration :none;
+    border-radius: 0 0 5px 5px;
+    color:white;
+  }
+  .nav>li>a:hover, .nav>li>a:focus {
+    text-decoration: none;
+    background-color: rgb(112,173,71);
+  }
+    .containerleft{
+        padding-top: 10px;
+        width:20%;
+        float:left;
+        background-color:rgb(247,252,242);
+      }
+      .containerbody{
+        padding-top: 10px;
+        width:60%;
+        float:left;
+      }
+      .containerright{
+        padding-top: 10px;
+        width:20%;
+        float:left;
+        background-color:rgb(255,250,235);
+      }
+      .idbox{
+        border-radius: 5px;
+        padding:7px;
+        margin:25px 20px 10px 10px;
+        border:1.5px solid rgb(255,192,0);
+        background: linear-gradient( to bottom,rgb(252, 236, 190), rgb(255, 209, 70) );
+        height:300px;
+      }
+      .idfont{
+        padding: 0 0 0 25px; 
+        font-weight:500; 
+        font-size:30px;
+        font-family: 'Single Day', cursive;
+        color:rgb(255, 174, 0);
+      }
+      .idinsert{
+        padding: 3px 0 0 25px;
+        font-family: 'Hi Melody', cursive;
+        font-size:20px;
+      }
+      .topletter{
+        font-family: 'Gamja Flower', cursive; 
+        font-weight:500; 
+        padding:10px 20px 20px 30px;
+        }
+      .bodyimgstyle{
+        border:1px solid rgb(56, 99, 240); 
+        height:70px; 
+        margin:0 5px 0 5px;
+        border-radius: 5px;
+        }
+      .bodyboardbox{
+        background-color:rgb(188,218,252); 
+        height:70px; 
+        margin:5px;
+        border-radius: 5px;
+        padding:5px;
+        }
+      .bodyinsert{
+        padding: 3px 0 0 25px;
+        font-size:10px;
+        color:gray;
+      }
+      .boardinsertbox{
+        margin:5px 10px 5px 15px;
+      }
+
+  </style>
+</head>
+
+
+<body>
+    
+  <div class="mynavbar">
+    <div class="row">
+      <div class="col-md-auto" style="margin-left:35px;"><img src="..." href='index.html'height="40px" width="40px" alter="로고"></div>    
+      <div class="col-sm-3 col-md-3">
+          <form class="navbar-form" role="search">
+          <div class="input-group">
+              <input type="text" class="form-control searchcolor fontcolor" placeholder="" name="q">
+              <div class="input-group-btn">
+                  <button class="btn btn-default searchcolor" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+              </div>
+          </div>
+          </form> 
+        </div>
+      <div class="col"> </div>
+      <div class="col col-lg-1" style="color:white; font-size:20px; padding:10px 0 0 0;"><a href="#" style="text-decoration :none; color:white;">Service</a></div>
+      <div class="col col-lg-1" style="color:white; font-size:20px; padding:10px 0 0 10px;"><a href="#" style="text-decoration :none; color:white;">My</a></div>
+    </div>
+    </div>
+    <div class="containerleft">
+    <div class="categorystyle">
+      <ul class="nav nav-pills">
+        <li class="nav-item dropdown">
+         <a class="navitems dropdown-toggle"data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="color:white;">Category</a>
+         <div class="dropdown-menu submenusize">
+              <a class="dropdown-item" href="">남성의류</a>
+              <a class="dropdown-item" href="">여성의류</a>
+              <a class="dropdown-item" href="">귀금속/액세서리</a>
+              <a class="dropdown-item" href="">PC/모바일</a>
+              <a class="dropdown-item" href="">가전제품</a>
+              <a class="dropdown-item" href="">게임</a>
+              <a class="dropdown-item" href="">스포츠/레저</a>
+              <a class="dropdown-item" href="">도서</a>
+              <a class="dropdown-item" href="">자동차/오토바이</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="">기타</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="">전체보기</a>
+             </div>
+          </li>
+      </ul>
+    </div>
+</div>
+
+<div class="containerbody"></div>
+<div class="containerright" style="height:40px;"></div>
+    {% block content %}
+    {% endblock %}
+</body>
+
+</html>
