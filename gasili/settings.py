@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'chart.apps.ChartConfig',
     'home.apps.HomeConfig',
+    'board.apps.BoardConfig'
 ]
 
 MIDDLEWARE = [
@@ -121,6 +122,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
+<<<<<<< HEAD
 AUTH_USER_MODEL = 'accounts.CustomUser'
+=======
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+>>>>>>> 3f2ffd24b5b445f9df1868b578377ca0c0a0101f
