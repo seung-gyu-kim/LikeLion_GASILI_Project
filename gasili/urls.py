@@ -24,7 +24,11 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home.views.index, name='index'),
+<<<<<<< HEAD
     path('accounts/', include('accounts.urls')),
+]
+=======
     path('board_create/',board.views.board_create, name="board_create"),
-    path('test/',board.views.test, name="test"),
+    path('test/',board.views.test, name="test")
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+>>>>>>> 3f2ffd24b5b445f9df1868b578377ca0c0a0101f
