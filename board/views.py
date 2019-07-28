@@ -10,4 +10,5 @@ def test(request) :
     return render(request,'test.html',{'boards' : boards})
 
 def board(request):
-    return render(request, 'board.html')
+    boards = Board.objects
+    return render(request, 'board.html',{'boards' : boards})

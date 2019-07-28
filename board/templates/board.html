@@ -18,13 +18,14 @@
         </tr>
         </thead>
         <tbody>
-        {% for blog in blogs.all %}
-        <tr>
+        {% for board in boards.all %}
+        <tr onclick="location.href='test.html'"  style="text-align: center;">
             <th scope="row">1</th>
-            <td>{{Board.title}}</td>
-            <td>{{Board.userName}}</td>
-            <td>{{Board.date}}</td>
+            <td>{{board.title}}</td>
+            <td>{{board.userName}}</td>
+            <td>{{board.date}}</td>
         </tr>
+        
         {%endfor%} 
         </tbody>
     </table>
