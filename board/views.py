@@ -8,3 +8,6 @@ def board_create(request) :
 def test(request) :
     boards = Board.objects
     return render(request,'test.html',{'boards' : boards})
+
+def board(request):
+    return render(request, 'board.html')

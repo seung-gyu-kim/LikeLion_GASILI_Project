@@ -28,4 +28,5 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('board_create/',board.views.board_create, name="board_create"),
     path('test/',board.views.test, name="test"),
+    path('board/', board.views.board, name="board"),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
