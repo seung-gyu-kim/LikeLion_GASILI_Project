@@ -1,13 +1,16 @@
 {% extends 'base.html' %}
 
-<div class="container">
-    {% block content %}
 
+    {% block content %}
+    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+    <h1 style="text-align: center;">GaSiRi Let's get it! man~</h1>
+
+    <div style="padding-top: 200px;">
     <table class="table table-hover">
         <thead>
-        <tr>
+        <tr style="text-align: center;">
             <th scope="col">순번</th>
             <th scope="col">글제목</th>
             <th scope="col">작성자</th>
@@ -25,6 +28,5 @@
         {%endfor%} 
         </tbody>
     </table>
-
+    </div>
     {% endblock %}
-</div>
