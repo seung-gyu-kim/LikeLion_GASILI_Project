@@ -34,15 +34,15 @@
     
   .searchcolor{
     background-color:rgb(243,106,95);
-    border:1.5px solid rgb(240,69,56);
+    border:1.5px solid rgb(248, 127, 118);
   }
   .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default {
     color: #333;
-    background-color: rgb(255, 180, 175);
-    border-color: #e92b2b;
+    background-color: rgb(248, 80, 68);
+    border-color: rgb(248, 127, 118);
 }
   .mynavbar{
-    background-color:rgb(240,69,56);
+    background-color:rgb(248, 127, 118);
     width: 100%;
     height:50px;
     top:0;
@@ -148,7 +148,7 @@
   {% load staticfiles %}
   <div class="mynavbar">
     <div class="row">
-      <div class="col-md-auto" style="margin-left:35px;"><img src="{% static '로고.PNG' %}" href='index.html'height="40px" width="40px" alter="로고" style="margin:5px;"></div>    
+      <div class="col-md-auto" style="margin-left:35px;"><a href="{% url 'index' %}"><img src="{% static '로고.PNG' %}"height="40px" width="40px" alter="로고" style="margin:5px;"></a></div> 
       <div class="col-sm-3 col-md-3">
           <form class="navbar-form" role="search">
           <div class="input-group">
