@@ -31,13 +31,16 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'accounts.apps.AccountsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'chart.apps.ChartConfig',
     'home.apps.HomeConfig',
+    'board.apps.BoardConfig'
 ]
 
 MIDDLEWARE = [
@@ -55,6 +58,7 @@ ROOT_URLCONF = 'gasili.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [],
         'DIRS': ['gasili/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -118,10 +122,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
+AUTH_USER_MODEL = 'accounts.CustomUser'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'home', 'static')
 ]
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')

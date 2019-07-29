@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-fluid row" style="width:100%; margin:0; padding:0;">
+    <div class="containerleft">
+    </div>
+    <div class="containerbody">
+        <div class="container" style="margin:0,25px,25px,25px; width:100%;">
+            <section id="recently">
+                <div class="col">
+                    <div class="row">
+                        <div style="border-radius: 5px; border:1px dashed rgb(91,155,213); width:100%; ">
+
+                            {% if error %}
+                            {{ error }}
+                            <br>
+                            <br>
+                            {% endif %}
+
+                            <h1>Update!</h1>
+                            <form method="POST" action="{% url 'update'%}">
+
+                                {% csrf_token %}
+                                <br>아이디(ID): {{ user.username }}<br>
+
+                                <br>성별(Gender): {% if user.gender == "W" %} 여성(Woman) {% else %} 남성(Man) {% endif %}<br>
+                                <br>성(Last Name): {{ user.last_name }}<br>
+                                <br>이름(First Name): {{ user.first_name }}<br>
+                                <br>생년월일(birthdate): {{ user.birthdate | date:'c'}}<br>
+                                <br>
+                                비밀번호(Password): <input name="changingPassword" type="button" value="비밀번호 바꾸기"
+                                    onclick="showPopup();"><br>
+                                <br>닉네임(Nickname): <input name="nickName" type="text" value="{{ user.nickname }}"><br>
+                                <br><input class="btn btn-primary" type="submit" value="Update!">
+                            </form>
+
+                            <script language="javascript">
+                                function showPopup() { window.open("{%url 'changePassword'%}", "a", "width=400, height=300, left=100, top=50"); }
+                            </script>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="containerright"></div>
+</div>
+{% endblock %}

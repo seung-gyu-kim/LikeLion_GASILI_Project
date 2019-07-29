@@ -95,6 +95,7 @@
         border-radius: 5px;
         padding:7px;
         margin:25px 20px 10px 10px;
+        border:1.5px solid rgb(255,192,0);
         border:2px solid rgb(255, 166, 0);
         background: linear-gradient( to bottom,rgb(252, 236, 190), rgb(255, 209, 70) );
         height:300px;
@@ -143,10 +144,15 @@
 
 
 <body>
+    
   {% load staticfiles %}
   <div class="mynavbar">
     <div class="row">
+<<<<<<< HEAD
       <div class="col-md-auto" style="margin-left:35px;"><a href="{% url 'index' %}"><img src="{% static '로고.PNG' %}"height="40px" width="40px" alter="로고" style="margin:5px;"></a></div>    
+=======
+      <div class="col-md-auto" style="margin-left:35px;"><img src="{% static '로고.PNG' %}"height="40px" width="40px" alter="로고" style="margin:5px;"></div>    
+>>>>>>> dev
       <div class="col-sm-3 col-md-3">
           <form class="navbar-form" role="search">
           <div class="input-group">
@@ -159,7 +165,26 @@
         </div>
       <div class="col"> </div>
       <div class="col col-lg-1" style="color:white; font-size:20px; padding:10px 0 0 0;"><a href="#" style="text-decoration :none; color:white;">Service</a></div>
-      <div class="col col-lg-1" style="color:white; font-size:20px; padding:10px 0 0 10px;"><a href="#" style="text-decoration :none; color:white;">My</a></div>
+      {% if user.is_authenticated %}
+      <div class="col col-lg-1 dropdown" style="color:white; font-size:20px; padding:10px 0 0 10px;">
+        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false" style="color:white; font-size:20px; padding:0px 0 0 0;">
+          My
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="{% url 'update' %}">회원정보</a>
+          <a class="dropdown-item" href="javascript:{document.getElementById('logout').submit()}">Logout</a>
+          <form id="logout" method="POST" action="{% url 'logout' %}">
+            {% csrf_token %} <input type="hidden" />
+          </form>
+        </div>
+      </div>
+      {% else %}
+      <div class="col col-lg-1" style="color:white; font-size:20px; padding:10px 0 0 0;"><a href="{% url 'signup' %}"
+          style="text-decoration :none; color:white;">Sign Up</a></div>
+      <div class="col col-lg-1" style="color:white; font-size:20px; padding:10px 0 0 0;"><a href="{% url 'login' %}"
+          style="text-decoration :none; color:white;">Sign in</a></div>
+      {% endif %}
     </div>
     </div>
     <div class="containerleft">

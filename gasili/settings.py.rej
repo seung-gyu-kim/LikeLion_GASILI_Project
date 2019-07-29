@@ -1,0 +1,9 @@
+diff a/gasili/settings.py b/gasili/settings.py	(rejected hunks)
+@@ -125,6 +125,7 @@
+  STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+  STATIC_URL = '/static/'
+  
++ <<<<<<< HEAD
+  AUTH_USER_MODEL = 'accounts.CustomUser'
+  =======
+  MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

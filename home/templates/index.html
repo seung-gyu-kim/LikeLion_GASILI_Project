@@ -200,21 +200,22 @@
         </div>
     </div>
 
-
+    {% if user.is_authenticated %}
     <div class="containerright">
       <div class="idbox" style="background:url({% static 'illustration6.PNG' %});background-repeat: no-repeat; background-size:100%;" >          
           <div class="row" style="padding:10px 0 0 25px;"><img src="..." alt="..." style="height:45px; width:60px; background-color:gray;"></div>
-          <div class="row"><div class="col idfont">기마병</div></div>
+          <div class="row"><div class="col idfont">{{ user.nickname }}</div></div>
           <div class="row" style="height:7px;"></div>
           <div class="row idinsert">등급 : ...</div>
           <div class="row idinsert">최근 글 : ...</div>
           <div class="row idinsert">최근 댓글 : ...</div>
           <div class="row idinsert">답장 : ...</div>
           <div class="row" style="height:25px;"></div>
-          <div class="row" style="font-size:7px; padding:0 0 0 25px;"><a href="#" sytle="text-decoration:none;">마이페이지</a></div>
+          <div class="row" style="font-size:7px; padding:0 0 0 25px;"><a href="{% url 'update' %}" sytle="text-decoration:none;">마이페이지</a></div>
       </div>
     </div>
-   
-  
+    {% else %}
+    <div class="containerright"></div>
+    {% endif %}
   </div>
   {% endblock %}
