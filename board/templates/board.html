@@ -19,7 +19,7 @@
         </thead>
         <tbody>
         {% for board in boards.all %}
-        <tr onclick="location.href='test.html'"  style="text-align: center;">
+        <tr onclick="location.href='{% url 'test' board.id %}'"  style="text-align: center;">
             <th scope="row">1</th>
             <td>{{board.title}}</td>
             <td>{{board.userName}}</td>
