@@ -1,5 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
+from django.utils import timezone
+from django.core.paginator import Paginator
 from .models import Board
+import math
 # Create your views here.
 
 def board_create(request) :
@@ -11,4 +14,13 @@ def test(request, board_id) :
 
 def board(request):
     boards = Board.objects
-    return render(request, 'board.html',{'boards' : boards})
+    boards_list = Board.objects.all()
+    paginator = Paginator(boards_list,2)
+    page = request.GET.get('page')
+    posts = paginator.get_page(page)
+    page_range = 5
+    current_block = math.ceil(int(page)/page_range)
+    start_block = (current_block-1) * page_range
+    end_block = start_block + page_range
+    p_range = paginator.page_range[start_block:end_block]
+    return render(request, 'board.html',{'boards' : boards , 'posts':posts , 'p_range': p_range})
