@@ -18,7 +18,6 @@ from django.urls import path, include
 import chart.views
 import home.views
 import board.views
-import accounts.views
 from django.conf import settings
 from django.conf.urls.static import static
 
