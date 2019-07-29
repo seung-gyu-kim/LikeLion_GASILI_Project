@@ -32,32 +32,20 @@
     </div>
 
     <div >
-        <div>
-                <div>
-                        <nav aria-label="Page navigation example">
-                            <ul class="pagination justify-content-center">
-                                {%if posts.has_previous%}
-                                <li class="page-item">
-                                    <a class="page-link" href="?page={{posts.previous_page_number}}" aria-label="Previous">
-                                        <span aria-hidden="true">&laquo;</span>
-                                    </a>
-                                </li>
-                                {%endif%}
-                                
-                                {% for i in p_range %}
-                                <li class="page-item"><a href="?page={{i}}" {% if posts.number == i %} class="page-link" {% endif %}>{{i}}</a></li>
-                                {% endfor %}
-            
-                                {%if posts.has_next%}
-                                <li class="page-item">
-                                    <a class="page-link" href="?page={{posts.next_page_number}}" aria-label="Next">
-                                        <span aria-hidden="true">&raquo;</span>
-                                    </a>
-                                </li>
-                                {%endif%}
-            
-                    </div>
-
+        <div >
+                {%if posts.has_previous%}
+                <a href="?page=1">First</a>
+                <a href="?page={{posts.previous_page_number}}">Previous</a>
+                {%endif%}
+                
+                <span>{{posts.number}}</span>
+                <span>of</span>
+                <span>{{posts.paginator.num_pages}}</span>
+                
+                {%if posts.has_next%}
+                <a href="?page={{posts.next_page_number}}">Next</a>
+                <a href="?page={{posts.paginator.num_pages}}">Last</a>
+                {%endif%}
         </div>
         <button onclick="location.href='{% url 'board_create' %}'" type="button" class="btn btn-danger" style="float: right;">글쓰기</button>
     </div>
