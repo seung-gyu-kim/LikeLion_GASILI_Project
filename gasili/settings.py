@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'chart.apps.ChartConfig',
     'home.apps.HomeConfig',
     'board.apps.BoardConfig',
+    'service.apps.ServiceConfig',
+    
 ]
 
 MIDDLEWARE = [
