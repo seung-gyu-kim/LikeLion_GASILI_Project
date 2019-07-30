@@ -1,0 +1,1 @@
+web: gunicorn gasiri.wsgi --log-file -
