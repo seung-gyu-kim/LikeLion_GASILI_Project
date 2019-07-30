@@ -18,6 +18,7 @@ from django.urls import path, include
 import chart.views
 import home.views
 import board.views
+import service.views
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -25,6 +26,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home.views.index, name='index'),
     path('accounts/', include('accounts.urls')),
+    path('service/', include('service.urls')),
     path('board_create/',board.views.board_create, name="board_create"),
     path('test/<int:board_id>',board.views.test, name="test"),
     path('board/', board.views.board, name="board"),

@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1> 서비스 센터 (Service Center)</h1>
+<br>
+<br>
+
+<div class="btn-group btn-group-toggle" data-toggle="buttons">
+  <label class="btn btn-secondary active">
+    <input type="radio" name="options" id="option1" autocomplete="off" checked> 전체
+  </label>
+  <label class="btn btn-secondary">
+    <input type="radio" name="options" id="option2" autocomplete="off"> 배송문의
+  </label>
+  <label class="btn btn-secondary">
+    <input type="radio" name="options" id="option3" autocomplete="off"> 반품/교환/환불
+  </label>
+  <label class="btn btn-secondary">
+    <input type="radio" name="options" id="option4" autocomplete="off"> 주문결제
+  </label>
+  <label class="btn btn-secondary">
+    <input type="radio" name="options" id="option5" autocomplete="off"> 회원서비스
+  </label>
+</div>
+<br>
+<br>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
+
+{% endblock %}
