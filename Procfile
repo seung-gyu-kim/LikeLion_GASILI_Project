@@ -1,1 +1,1 @@
-web: gunicorn gasiri.wsgi --log-file -
+web: gunicorn gasili.wsgi --log-file -
