@@ -6,8 +6,6 @@ from .models import Board
 
 # Create your views here.
 
-def board_create(request) :
-    return render(request,'board_create.html')
 
 def board_new(request) :
     return render(request,'board_new.html')
