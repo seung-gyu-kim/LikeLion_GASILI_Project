@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+
+    {% block content %}
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <h1 style="text-align: center;">GaSiRi Let's get it! man~</h1>
+
+    <div style="padding-top: 200px;">
+    <table class="table table-hover">
+        <thead>
+        <tr style="text-align: center;">
+            <th scope="col">순번</th>
+            <th scope="col">글제목</th>
+            <th scope="col">작성자</th>
+            <th scope="col">작성일자</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for board in posts %}
+        <tr onclick="location.href='{% url 'test' board.id %}'"  style="text-align: center;">
+            <th scope="row">{{board.id}}</th>
+            <td>{{board.title}}</td>
+            <td>{{board.userName}}</td>
+            <td>{{board.date}}</td>
+        </tr>
+
+        {%endfor%} 
+        </tbody>
+    </table>
+    </div>
+
+    <div >
+        <div >
+                {%if posts.has_previous%}
+                <a href="?page=1">First</a>
+                <a href="?page={{posts.previous_page_number}}">Previous</a>
+                {%endif%}
+                
+                <span>{{posts.number}}</span>
+                <span>of</span>
+                <span>{{posts.paginator.num_pages}}</span>
+                
+                {%if posts.has_next%}
+                <a href="?page={{posts.next_page_number}}">Next</a>
+                <a href="?page={{posts.paginator.num_pages}}">Last</a>
+                {%endif%}
+        </div>
+        <button onclick="location.href='{% url 'board_new' %}'" type="button" class="btn btn-danger" style="float: right;">글쓰기</button>
+    </div>
+
+    {% endblock %}

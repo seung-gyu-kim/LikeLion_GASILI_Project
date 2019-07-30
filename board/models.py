@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 class Board(models.Model) :
-    # pk = models.AutoField()
+    #pk = models.AutoField()
     title = models.CharField(max_length=200)
     date = models.DateTimeField('date published')
     category = models.CharField(max_length=20)
@@ -13,6 +13,7 @@ class Board(models.Model) :
     state = models.CharField(max_length=20)
     userName = models.CharField(max_length=50)
     image = models.ImageField(upload_to='images/')
+    
     def __str__(self) :
         return self.title
     #제목

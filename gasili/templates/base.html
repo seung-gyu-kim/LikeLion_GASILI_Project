@@ -34,15 +34,15 @@
     
   .searchcolor{
     background-color:rgb(243,106,95);
-    border:1.5px solid rgb(240,69,56);
+    border:1.5px solid rgb(248, 127, 118);
   }
   .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default {
     color: #333;
-    background-color: rgb(255, 180, 175);
-    border-color: #e92b2b;
+    background-color: rgb(248, 80, 68);
+    border-color: rgb(248, 127, 118);
 }
   .mynavbar{
-    background-color:rgb(240,69,56);
+    background-color:rgb(248, 127, 118);
     width: 100%;
     height:50px;
     top:0;
@@ -52,7 +52,7 @@
   .categorystyle{
     position: relative;
     left:15px;
-    width:99px;
+    width:98px;
     height:30px;
     top:-10px;
     border-radius: 0 0 5px 5px;
@@ -79,6 +79,7 @@
         width:20%;
         float:left;
         background-color:rgb(247,252,242);
+      
       }
       .containerbody{
         padding-top: 10px;
@@ -96,6 +97,7 @@
         padding:7px;
         margin:25px 20px 10px 10px;
         border:1.5px solid rgb(255,192,0);
+        border:2px solid rgb(255, 166, 0);
         background: linear-gradient( to bottom,rgb(252, 236, 190), rgb(255, 209, 70) );
         height:300px;
       }
@@ -144,9 +146,10 @@
 
 <body>
     
+  {% load staticfiles %}
   <div class="mynavbar">
     <div class="row">
-      <div class="col-md-auto" style="margin-left:35px;"><img src="..." href='index.html'height="40px" width="40px" alter="로고"></div>    
+      <div class="col-md-auto" style="margin-left:35px;"><a href="{% url 'index' %}"><img src="{% static '로고.PNG' %}"height="40px" width="40px" alter="로고" style="margin:5px;"></a></div> 
       <div class="col-sm-3 col-md-3">
           <form class="navbar-form" role="search">
           <div class="input-group">
@@ -159,7 +162,26 @@
         </div>
       <div class="col"> </div>
       <div class="col col-lg-1" style="color:white; font-size:20px; padding:10px 0 0 0;"><a href="#" style="text-decoration :none; color:white;">Service</a></div>
-      <div class="col col-lg-1" style="color:white; font-size:20px; padding:10px 0 0 10px;"><a href="#" style="text-decoration :none; color:white;">My</a></div>
+      {% if user.is_authenticated %}
+      <div class="col col-lg-1 dropdown" style="color:white; font-size:20px; padding:10px 0 0 10px;">
+        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false" style="color:white; font-size:20px; padding:0px 0 0 0;">
+          My
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="{% url 'update' %}">회원정보</a>
+          <a class="dropdown-item" href="javascript:{document.getElementById('logout').submit()}">Logout</a>
+          <form id="logout" method="POST" action="{% url 'logout' %}">
+            {% csrf_token %} <input type="hidden" />
+          </form>
+        </div>
+      </div>
+      {% else %}
+      <div class="col col-lg-1" style="color:white; font-size:20px; padding:10px 0 0 0;"><a href="{% url 'signup' %}"
+          style="text-decoration :none; color:white;">Sign Up</a></div>
+      <div class="col col-lg-1" style="color:white; font-size:20px; padding:10px 0 0 0;"><a href="{% url 'login' %}"
+          style="text-decoration :none; color:white;">Sign in</a></div>
+      {% endif %}
     </div>
     </div>
     <div class="containerleft">
@@ -168,19 +190,19 @@
         <li class="nav-item dropdown">
          <a class="navitems dropdown-toggle"data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="color:white;">Category</a>
          <div class="dropdown-menu submenusize">
-              <a class="dropdown-item" href="">남성의류</a>
-              <a class="dropdown-item" href="">여성의류</a>
-              <a class="dropdown-item" href="">귀금속/액세서리</a>
-              <a class="dropdown-item" href="">PC/모바일</a>
-              <a class="dropdown-item" href="">가전제품</a>
-              <a class="dropdown-item" href="">게임</a>
-              <a class="dropdown-item" href="">스포츠/레저</a>
-              <a class="dropdown-item" href="">도서</a>
-              <a class="dropdown-item" href="">자동차/오토바이</a>
+              <a class="dropdown-item" href="{% url 'board' %}">남성의류</a>
+              <a class="dropdown-item" href="{% url 'board' %}">여성의류</a>
+              <a class="dropdown-item" href="{% url 'board' %}">귀금속/액세서리</a>
+              <a class="dropdown-item" href="{% url 'board' %}">PC/모바일</a>
+              <a class="dropdown-item" href="{% url 'board' %}">가전제품</a>
+              <a class="dropdown-item" href="{% url 'board' %}">게임</a>
+              <a class="dropdown-item" href="{% url 'board' %}">스포츠/레저</a>
+              <a class="dropdown-item" href="{% url 'board' %}">도서</a>
+              <a class="dropdown-item" href="{% url 'board' %}">자동차/오토바이</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="">기타</a>
+              <a class="dropdown-item" href="{% url 'board' %}">기타</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="">전체보기</a>
+              <a class="dropdown-item" href="{% url 'board' %}">전체보기</a>
              </div>
           </li>
       </ul>
@@ -189,8 +211,36 @@
 
 <div class="containerbody"></div>
 <div class="containerright" style="height:40px;"></div>
-    {% block content %}
-    {% endblock %}
+
+<!--input content here!-->
+<div class="container-fluid row" style="margin:0; width:100%; padding:0;">
+
+<div class="containerleft"></div>
+<div class="containerbody">
+  
+{% block content %}
+{% endblock %}
+
+</div>
+<div class="containerright">
+  {% if user.is_authenticated %}
+
+  <div class="idbox" style="background:url({% static 'illustration6.PNG' %});background-repeat: no-repeat; background-size:100%;" >          
+      <div class="row" style="padding:10px 0 0 25px;"><img src="..." alt="..." style="height:45px; width:60px; background-color:gray;"></div>
+      <div class="row"><div class="col idfont">{{ user.nickname }}</div></div>
+      <div class="row" style="height:7px;"></div>
+      <div class="row idinsert">등급 : ...</div>
+      <div class="row idinsert">최근 글 : ...</div>
+      <div class="row idinsert">최근 댓글 : ...</div>
+      <div class="row idinsert">답장 : ...</div>
+      <div class="row" style="height:25px;"></div>
+      <div class="row" style="font-size:7px; padding:0 0 0 25px;"><a href="{% url 'update' %}" sytle="text-decoration:none;">마이페이지</a></div>
+  </div>
+
+{% else %}
+{% endif %}
+</div>
+</div>
 </body>
 
 </html>
