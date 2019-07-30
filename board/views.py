@@ -9,6 +9,9 @@ from .models import Board
 def board_create(request) :
     return render(request,'board_create.html')
 
+def board_new(request) :
+    return render(request,'board_new.html')
+
 def test(request, board_id) :
     board_detail = get_object_or_404(Board, pk=board_id)
     return render(request,'test.html',{'board' : board_detail})
