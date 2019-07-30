@@ -13,27 +13,28 @@
                         
                             <h1>게시물 등록</h1>
 
-                            <form method="POST" action="{% url 'board'%}" enctype="multipart/form-data">
+                            <form method="POST" action="{% url 'board_create'%}" enctype="multipart/form-data">
                                 {% csrf_token %}
                                 <div class="mb-3">
                                     <div  style=" width: 200px;">
                                             상품 구매 가격 <input class="form-control" name="order_price" type="text" value="" style="margin-bottom: 5px;">
                                             카테고리
-                                            <select class="form-control" id="country" required>
-                                              <option value="">카테고리1</option>
-                                              <option value="">카테고리2</option>
-                                              <option value="">카테고리3</option>
-                                              <option value="">카테고리4</option>
-                                              <option value="">카테고리5</option>
-                                              <option value="">카테고리6</option>
-                                              <option value="">카테고리7</option>
-                                              <option value="">카테고리8</option>
+                                            <select class="form-control" name="category" >
+                                              <option value="남성의류">남성의류</option>
+                                              <option value="여성의류">여성의류</option>
+                                              <option value="귀금속/액세서리">귀금속/액세서리</option>
+                                              <option value="PC/모바일">PC/모바일</option>
+                                              <option value="게임">게임</option>
+                                              <option value="스포츠/레저">스포츠/레저</option>
+                                              <option value="도서">도서</option>
+                                              <option value="자동차/오토바이">자동차/오토바이</option>
+                                              <option value="기타">기타</option>
                                             </select>
                                     </div>
                                     <br>
                                     본문을 작성해주세요!
-                                    <input type="email" class="form-control" name="board_title" placeholder="게시물 제목을 입력해주세요."><br>
-                                    <textarea class="form-control"  rows="15" name="board_body" placeholder="본문 내용을 입력해주세요"></textarea>
+                                    <input type="text" class="form-control" name="title" placeholder="게시물 제목을 입력해주세요."><br>
+                                    <textarea class="form-control"  rows="15" name="body" placeholder="본문 내용을 입력해주세요"></textarea>
 
                                 </div>
                                 <div style="text-align: center;">
