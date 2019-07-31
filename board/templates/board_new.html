@@ -35,19 +35,23 @@
                                     본문을 작성해주세요!
                                     <input type="text" class="form-control" name="title" placeholder="게시물 제목을 입력해주세요."><br>
                                     <textarea class="form-control"  rows="15" name="body" placeholder="본문 내용을 입력해주세요"></textarea>
-
+                                    <input type="file" name="file"/>
                                 </div>
+
                                 <div style="text-align: center;">
                                         <input class="btn btn-primary" type="submit" value="등록">
                                         <a href="./" class="btn btn-primary">취소</a>
                                 </div>
                                 
                             </form>
-                            <form enctype="multipart/form-data" action="" method="post"> <!-- Do not forget to add: enctype="multipart/form-data" -->
+                            <!---
+                            <form enctype="multipart/form-data" action="" method="post"> 
                                 {% csrf_token %}
                                 {{ form }}
                                 <input type="submit" value="Save">
                             </form>
+                            -->
+                            
                         </div>
                     </div>
                 </div>
