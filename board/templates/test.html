@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container" style="padding-top: 200px;">
+        <h2>{{ board.title }}</h2>
+        <p>{{ board.date }}</p>
+
+        <br>
+        <br>
+        <div class="container" style=" margin:0,25px,25px,25px; width:100%;">
+            <section id="recently">
+                <div class="col">
+                    <div class="row">
+                        <div style="border-radius: 5px; border:1px dashed rgb(91,155,213); padding: 15px; width:100%; ">
+                            <p>{{ board.body }}</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <br>
+        <br>
+        <a href="{% url 'board' %}">글목록</a>
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,11 @@
+{% if user.is_authenticated %}
+환영합니다. {{ user.username }} 님!<br>
+<a href="{% url 'update' %}">Update</a>
+<a href="javascript:{document.getElementById('logout').submit()}">Logout</a>
+<form id="logout" method="POST" action="{% url 'logout' %}">
+    {% csrf_token %} <input type="hidden" />
+</form>
+{% else %}
+<a href="{% url 'signup' %}">Signup</a>
+<a href="{% url 'login' %}">Login</a>
+{% endif %}
