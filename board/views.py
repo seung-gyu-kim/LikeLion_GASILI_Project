@@ -15,9 +15,11 @@ def board_new(request) :
     return render(request,'board_new.html')
 
 def create(request) :
+    '''
     for key in request.POST:
             if len(request.POST[key]) == 0:
                 return render(request, 'board_new.html', {'error': '빈칸이 있습니다.'})
+    '''
 
     if request.method == 'POST':
         boards = Board()
@@ -28,7 +30,7 @@ def create(request) :
         boards.category = request.POST['category']
         boards.state = "판매중"
         
-        if 'file' in request.FILES :
+        for file in request.FILES :
             file = request.FILES['file']
             filename = rand_str()+".PNG"
             print(filename)
@@ -40,6 +42,7 @@ def create(request) :
                 fp.write(chunk)
             fp.close()
         boards.image = 'images/'+filename # POST로 전달한 이미지로 
+        
         
         # 보완 - 로그인 상태 아닐 경우,
         #if(request.user.username  is None)
