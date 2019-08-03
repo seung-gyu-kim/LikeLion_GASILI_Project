@@ -2,7 +2,7 @@ import math
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from django.core.paginator import Paginator
-from .models import Board
+from .models import Board, Comment
 
 # Create your views here.
 
@@ -33,8 +33,9 @@ def create(request) :
         return redirect('/test/' + str(boards.id)) # URL 경로 board로 
         
 def test(request, board_id) :
+    comment = Comment()
     board_detail = get_object_or_404(Board, pk=board_id)
-    return render(request,'test.html',{'board' : board_detail})
+    return render(request,'test.html',{'board' : board_detail, 'comment' : comment})
 
 def board(request):
     boards = Board.objects

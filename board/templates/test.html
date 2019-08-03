@@ -1,6 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<style>
+    .comment {
+        margin: 20px 0px 20px 20px;
+    }
+</style>
 
     <div class="container" style="padding-top: 200px;">
         <h2>{{ board.title }}</h2>
@@ -22,8 +27,39 @@
 
         <br>
         <br>
+
+        
+
         <a href="{% url 'board' %}">글목록</a>
     </div>
 
+    <br>
+    <br>
 
+    <h4> 댓글</h4>
+
+    <form>
+        <div>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>   
+        </div>
+        <br>
+        <div align='right'>
+            <button type="button" class="btn btn-primary">등록</button>
+        </div>
+    </form>
+    <!-- form action 구현 필요-->
+    
+    {% for comment in board.comments.all %}
+        <div class="comment">
+            <div class="date">
+                <strong>{{ comment.author }}</strong>  
+                {{ comment.created_date }}
+            </div>
+            <p>{{ comment.text|linebreaks }}</p>      
+        </div>
+    {% empty %}
+        <p>No comments here yet :(</p>
+    {% endfor %}
+    
+    
 {% endblock %}
