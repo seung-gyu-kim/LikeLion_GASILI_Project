@@ -12,8 +12,8 @@ def board_new(request) :
 
 def create(request) :
     for key in request.POST:
-            if len(request.POST[key]) == 0:
-                return render(request, 'board_new.html', {'error': '빈칸이 있습니다.'})
+        if len(request.POST[key]) == 0:
+            return render(request, 'board_new.html', {'error': '빈칸이 있습니다.'})
 
     if request.method == 'POST':
         boards = Board()
@@ -45,3 +45,17 @@ def board(request):
     posts = paginator.get_page(page)
 
     return render(request, 'board.html',{'boards' : boards , 'posts':posts})
+
+def commentcreate(request, pk):
+    post = get_object_or_404(Board, pk=pk)
+    if request.method == 'POST':
+        comments = Comment()
+        comments.te
+        xt = request.POST['text']
+        comments.author = '1'
+        #comments.author = request.POST['title'] 로그인 세션 확인 후 넣기
+        comments.created_date = timezone.datetime.now()
+        comments.post = post #board_ID 정보를 어떻게 넣을까?
+
+    return render(request, 'test.html')
+    #댓글 입력했을 떄 처리해주는 함수

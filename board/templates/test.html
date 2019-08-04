@@ -38,7 +38,7 @@
 
     <h4> 댓글</h4>
 
-    <form>
+    <form method="POST" action="{% url 'comment_create' pk=board.pk%}">
         <div>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>   
         </div>
