@@ -9,4 +9,3 @@ __pycache__/
 local_settings.py
 db.sqlite3
 media
-0001_initial.py
