@@ -63,6 +63,8 @@ def test(request, board_id) :
     board_detail = get_object_or_404(Board, pk=board_id)
     return render(request,'test.html',{'board' : board_detail})
 
+def csstest(request) :
+    return render(request,'csstest.html')
 def board(request):
     boards = Board.objects
     boards_list = Board.objects.all()
