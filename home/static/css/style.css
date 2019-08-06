@@ -38,3 +38,45 @@ body {
     clear: both; /* 상단의 흐름을 한번 끊어주기 위해 clear를 해준다.. -.-;;??*/
     float: left; /*새로운 흐름을 지정해줘야 깨지지 않는다*/
 }
+/* 여기까지 그냥 test용 css */ 
+
+
+/*           board_new.html 적용 css          */
+.container-board-new row {
+    width:100%; 
+    margin:0; 
+    padding:0;
+}
+
+.container-board-new {
+    margin:0,25px,25px,25px; 
+    width:100%;
+}
+
+.classframe {
+    border-radius: 5px; 
+    border:1px dashed rgb(91,155,213); 
+    width:100%; 
+}
+.mb-3 #topContent {
+    width: 200px;
+}
+.mb-3 .form-control {
+    margin-bottom: 5px;
+}
+.mb-3 #fileAdd {
+    margin: 20px 5px 5px 87%
+}
+.area-file {
+    border:1px solid black; 
+    height: 200px;  
+    overflow:scroll;
+}
+
+.area-file input {
+    margin: 10px 10px;
+}
+.confirmOrCancel {
+    text-align: center;
+}
+/*           board_new.html 적용 css          */
