@@ -41,11 +41,11 @@
                                     <input type="button" value="파일추가" class="btn btn-primary" onclick="addFile()" id="fileAdd">
                                     
                                     <div class="area-file">
-                                        <div name="filediv" >
+                                        <div name="filediv">
                                         <input type="file" name="file" />
                                         </div>
 
-                                        <table id="preset1" style="display:none;">
+                                        <table id="preset1" style="display:none;" name="filetable1">
                                             <tr name="tr_attach_file">
                                                 <td>
                                                     <input type="file" name="file1"/>
@@ -53,7 +53,7 @@
                                             </tr>
                                         </table>
 
-                                        <table id="preset2" style="display:none;">
+                                        <table id="preset2" style="display:none;" name="filetable2">
                                             <tr name="tr_attach_file">
                                                 <td>
                                                     <input type="file" name="file2"/>
@@ -61,7 +61,7 @@
                                             </tr>
                                         </table>
 
-                                        <table id="preset3" style="display:none;">
+                                        <table id="preset3" style="display:none;" name="filetable3">
                                             <tr name="tr_attach_file">
                                                 <td>
                                                     <input type="file" name="file3"/>
@@ -69,7 +69,7 @@
                                             </tr>
                                         </table>
 
-                                        <table id="preset4" style="display:none;">
+                                        <table id="preset4" style="display:none;" name="filetable4">
                                             <tr name="tr_attach_file">
                                                 <td>
                                                     <input type="file" name="file4"/>
@@ -77,7 +77,7 @@
                                             </tr>
                                         </table>
 
-                                        <table id="preset5" style="display:none;">
+                                        <table id="preset5" style="display:none;" name="filetable5">
                                             <tr name="tr_attach_file">
                                                 <td>
                                                     <input type="file" name="file5"/>
@@ -105,16 +105,16 @@
                                         $('[name=form1] [name=filediv]:last').after( $('#preset1 tr').clone());
                                         break;
                                     case 2 :
-                                        $('[name=form1] [name=filediv]:last').after( $('#preset2 tr').clone());
+                                        $('[name=form1] [name=filetable1]:last').after( $('#preset2 tr').clone());
                                         break;
                                     case 3 :
-                                        $('[name=form1] [name=filediv]:last').after( $('#preset3 tr').clone());
+                                        $('[name=form1] [name=filetable2]:last').after( $('#preset3 tr').clone());
                                         break;
                                     case 4 :
-                                        $('[name=form1] [name=filediv]:last').after( $('#preset4 tr').clone());
+                                        $('[name=form1] [name=filetable3]:last').after( $('#preset4 tr').clone());
                                         break;
                                     case 5 :
-                                        $('[name=form1] [name=filediv]:last').after( $('#preset5 tr').clone());
+                                        $('[name=form1] [name=filetable4]:last').after( $('#preset5 tr').clone());
                                         break;
                                 }
 	                            // $('#preset tr').clone() : id=preset 에서 tr 요소 셀렉트 하여 복제 !!

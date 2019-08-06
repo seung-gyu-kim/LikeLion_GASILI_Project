@@ -36,8 +36,7 @@ def create(request) :
                 fileStr = "file"
             else :
                 fileStr = "file" + str(count)
-            count = count + 1
-
+            
             file = request.FILES[fileStr]
             filename = rand_str()+".PNG"
             print(filename)
@@ -48,7 +47,20 @@ def create(request) :
             for chunk in file.chunks():
                 fp.write(chunk)
             fp.close()
-        boards.image = 'images/'+filename # POST로 전달한 이미지로 
+            if count == 0 :
+                boards.image = 'images/'+filename # POST로 전달한 이미지로
+            elif count == 1 :
+                boards.image1 = 'images/'+filename
+            elif count == 2 :
+                boards.image2 = 'images/'+filename
+            elif count == 3 :
+                boards.image3 = 'images/'+filename
+            elif count == 4 :
+                boards.image4 = 'images/'+filename
+            elif count == 5 :
+                boards.image5 = 'images/'+filename
+
+            count = count + 1
         
         
         # 보완 - 로그인 상태 아닐 경우,
