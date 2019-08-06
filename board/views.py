@@ -57,7 +57,7 @@ def create(request) :
         ## 수정필요 ## 
        
         boards.save()
-        return redirect('/test/' + str(boards.id)) # URL 경로 board로 
+        return redirect('/board/test/' + str(boards.id)) # URL 경로 board로 
         
 def test(request, board_id) :
     comment = Comment()
