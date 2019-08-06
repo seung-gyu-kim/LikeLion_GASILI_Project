@@ -35,16 +35,49 @@
                                     본문을 작성해주세요!
                                     <input type="text" class="form-control" name="title" placeholder="게시물 제목을 입력해주세요."><br>
                                     <textarea class="form-control"  rows="15" name="body" placeholder="본문 내용을 입력해주세요"></textarea>
-                                    <button type="button" class="btn btn-primary" onclick="addFile()" style="margin: 20px 5px 5px 565px; ">파일추가</button>
+                                    <input type="button" value="파일추가" class="btn btn-primary" onclick="addFile()" style="margin: 20px 5px 5px 87% ">
                                     
                                     <div style=" border:1px solid black; height: 200px;  overflow:scroll;">
                                         <div name="filediv" >
                                         <input type="file" name="file" style="margin: 10px 10px;"/>
                                         </div>
-                                        <table id="preset" style="display:none;">
+
+                                        <table id="preset1" style="display:none;">
                                             <tr name="tr_attach_file">
                                                 <td>
-                                                    <input type="file" name="file0" style="margin: 10px 10px;"/>
+                                                    <input type="file" name="file1" style="margin: 10px 10px;"/>
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                        <table id="preset2" style="display:none;">
+                                            <tr name="tr_attach_file">
+                                                <td>
+                                                    <input type="file" name="file2" style="margin: 10px 10px;"/>
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                        <table id="preset3" style="display:none;">
+                                            <tr name="tr_attach_file">
+                                                <td>
+                                                    <input type="file" name="file3" style="margin: 10px 10px;"/>
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                        <table id="preset4" style="display:none;">
+                                            <tr name="tr_attach_file">
+                                                <td>
+                                                    <input type="file" name="file4" style="margin: 10px 10px;"/>
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                        <table id="preset5" style="display:none;">
+                                            <tr name="tr_attach_file">
+                                                <td>
+                                                    <input type="file" name="file5" style="margin: 10px 10px;"/>
                                                 </td>
                                             </tr>
                                         </table>
@@ -61,8 +94,30 @@
                             
 
                             <script>
+                            var count = 0;
                             function addFile(){
-	                            $('[name=form1] [name=filediv]:last').after( $('#preset tr').clone() );
+                                count++;
+                                switch (count) {
+                                    case 1 :
+                                        $('[name=form1] [name=filediv]:last').after( $('#preset1 tr').clone());
+                                        break;
+                                    case 2 :
+                                        $('[name=form1] [name=filediv]:last').after( $('#preset2 tr').clone());
+                                        break;
+                                    case 3 :
+                                        $('[name=form1] [name=filediv]:last').after( $('#preset3 tr').clone());
+                                        break;
+                                    case 4 :
+                                        $('[name=form1] [name=filediv]:last').after( $('#preset4 tr').clone());
+                                        break;
+                                    case 5 :
+                                        $('[name=form1] [name=filediv]:last').after( $('#preset5 tr').clone());
+                                        break;
+                                }
+
+                                
+                                
+                                
 	                            // $('#preset tr').clone() : id=preset 에서 tr 요소 셀렉트 하여 복제 !!
 	                            // form1 안에 이름이 tr_attach_file 인것 중 마지막 것 다음에 추가합니다.
 	                            // 이렇게 하면 실행때 마다 동적으로 하나씩 추가됩니다.

@@ -30,8 +30,15 @@ def create(request) :
         boards.category = request.POST['category']
         boards.state = "판매중"
         
+        count = 0 
         for file in request.FILES :
-            file = request.FILES['file']
+            if count == 0 :
+                fileStr = "file"
+            else :
+                fileStr = "file" + str(count)
+            count = count + 1
+
+            file = request.FILES[fileStr]
             filename = rand_str()+".PNG"
             print(filename)
             module_dir = os.path.dirname(__file__)  # get current directory
