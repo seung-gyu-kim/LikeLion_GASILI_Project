@@ -2,7 +2,7 @@ import math
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from django.core.paginator import Paginator
-from .models import Board
+from .models import Board, Comment
 import os
 import random
 import string
@@ -30,8 +30,14 @@ def create(request) :
         boards.category = request.POST['category']
         boards.state = "판매중"
         
+        count = 0 
         for file in request.FILES :
-            file = request.FILES['file']
+            if count == 0 :
+                fileStr = "file"
+            else :
+                fileStr = "file" + str(count)
+            
+            file = request.FILES[fileStr]
             filename = rand_str()+".PNG"
             print(filename)
             module_dir = os.path.dirname(__file__)  # get current directory
@@ -41,7 +47,20 @@ def create(request) :
             for chunk in file.chunks():
                 fp.write(chunk)
             fp.close()
-        boards.image = 'images/'+filename # POST로 전달한 이미지로 
+            if count == 0 :
+                boards.image = 'images/'+filename # POST로 전달한 이미지로
+            elif count == 1 :
+                boards.image1 = 'images/'+filename
+            elif count == 2 :
+                boards.image2 = 'images/'+filename
+            elif count == 3 :
+                boards.image3 = 'images/'+filename
+            elif count == 4 :
+                boards.image4 = 'images/'+filename
+            elif count == 5 :
+                boards.image5 = 'images/'+filename
+
+            count = count + 1
         
         
         # 보완 - 로그인 상태 아닐 경우,
@@ -50,17 +69,20 @@ def create(request) :
         ## 수정필요 ## 
        
         boards.save()
-        return redirect('/test/' + str(boards.id)) # URL 경로 board로 
+        return redirect('/board/test/' + str(boards.id)) # URL 경로 board로 
         
 def test(request, board_id) :
+    comment = Comment()
     board_detail = get_object_or_404(Board, pk=board_id)
-    return render(request,'test.html',{'board' : board_detail})
+    return render(request,'test.html',{'board' : board_detail, 'comment' : comment})
 
+def csstest(request) :
+    return render(request,'csstest.html')
+    
 def board(request):
     boards = Board.objects
     boards_list = Board.objects.all()
     paginator = Paginator(boards_list,3)
     page = request.GET.get('page')
     posts = paginator.get_page(page)
-
     return render(request, 'board.html',{'boards' : boards , 'posts':posts})

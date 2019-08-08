@@ -17,7 +17,6 @@ from django.contrib import admin
 from django.urls import path, include
 import chart.views
 import home.views
-import board.views
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -25,8 +24,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home.views.index, name='index'),
     path('accounts/', include('accounts.urls')),
-    path('board/new',board.views.board_new, name="board_new"),
-    path('board/create/',board.views.create, name="board_create"),
-    path('test/<int:board_id>',board.views.test, name="test"),
-    path('board/', board.views.board, name="board"),
+    path('board/', include('board.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
