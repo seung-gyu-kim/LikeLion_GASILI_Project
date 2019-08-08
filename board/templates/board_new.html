@@ -61,7 +61,10 @@
                             
 
                             <script>
+                            var count = 0;
                             function addFile(){
+                                count++;
+                                if (count == 0)
 	                            $('[name=form1] [name=filediv]:last').after( $('#preset tr').clone() );
 	                            // $('#preset tr').clone() : id=preset 에서 tr 요소 셀렉트 하여 복제 !!
 	                            // form1 안에 이름이 tr_attach_file 인것 중 마지막 것 다음에 추가합니다.
