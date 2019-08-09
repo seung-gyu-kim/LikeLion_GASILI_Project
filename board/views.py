@@ -17,13 +17,20 @@ def board_new(request) :
 
 def create(request) :
     '''
-    for key in request.POST:
-            if len(request.POST[key]) == 0:
+        for key in request.POST:
+            print("----")
+            print(request.POST[key])
+            if len(request.POST[key]) == 0 or request.POST[key] is None :
                 return render(request, 'board_new.html', {'error': '빈칸이 있습니다.'})
     '''
-
     if request.method == 'POST':
         boards = Board()
+
+        if request.user.id is None :
+            return render(request, 'accounts/login.html', {'error': '게시물 작성을 위해 로그인해주세요.'})
+        else :
+            boards.userId = request.user.id
+
         boards.title = request.POST['title']
         boards.order_price = request.POST['order_price']
         boards.body = request.POST['body']
@@ -62,14 +69,14 @@ def create(request) :
 
             count = count + 1
         
-        if request.user.username is None :
-            print("로그인 안됨")
+
         
-
-
+    
         # 보완 - 로그인 상태 아닐 경우,
         #if(request.user.username  is None)
-        boards.userId = request.user.id 
+        
+        print(request.user.id )
+        #boards.userId = request.user.id 
         ## 수정필요 ## 
        
         boards.save()
@@ -100,7 +107,6 @@ def createcomment(request, board_id):
         comments.text = request.POST['text']
         comments.price = request.POST['price']
         comments.post = board_id
-
         comments.save()
 
         return redirect('test', board_id)
