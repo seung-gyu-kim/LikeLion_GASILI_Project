@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'board.apps.BoardConfig',
     'accounts.apps.AccountsConfig',
     'mypage.apps.MypageConfig',
+    'service.apps.ServiceConfig',
+    
 ]
 
 MIDDLEWARE = [

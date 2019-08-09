@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+
+    {% block content %}
+
+    
+    
+    <h1 style="text-align: center;">서비스 센터 (Service Center)</h1>
+    
+    {% for service in services.all %}
+    
+    <div class="accordion" id="accordionExample">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h2 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+         <h5>{{service.title}}</h5>
+        </button>
+      </h2>
+    </div>
+
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body">
+       <h5>{{service.body}}</h5>
+      </div>
+    </div>
+  </div>
+
+    {% endfor %}
+
+    {% endblock %}
+
+

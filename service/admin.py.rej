@@ -1,0 +1,7 @@
+diff a/service/admin.py b/service/admin.py	(rejected hunks)
+@@ -1,5 +1,4 @@
+ from django.contrib import admin
+-
+ from .models import Service
+ # Register your models here.
+ 
