@@ -10,7 +10,7 @@
                 <div class="col">
                     <div class="row">
                         <div style="border-radius: 5px; border:1px dashed rgb(91,155,213); width:100%; ">
-                            <h1 style="text-align: center;">내가 쓴 게시글</h1>
+                            <h1 style="text-align: center;">내가 단 댓글</h1>
                             <div style="padding-top: 20px;"></div>
                             <div class="flexbox">
                                 <div class="item"><a href="{% url 'update'%}">사용자정보</a></div>
@@ -21,17 +21,17 @@
                                 <thead>
                                     <tr style="text-align: center;">
                                         <th scope="col">순번</th>
-                                        <th scope="col">글제목</th>
                                         <th scope="col">댓글내용</th>
+                                        <th scope="col">제시한 금액</th>
                                         <th scope="col">작성일자</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {% for post in posts %}
+                                    {% for post in posts.all %}
                                     <tr onclick="location.href='{% url 'test' post.id %}'" style="text-align: center;">
                                         <th scope="row">{{post.id}}</th>
-                                        <td>{{post.title}}</td>
                                         <td>{{post.text | truncatechars:10}}</td>
+                                        <td>{{post.price}}</td>
                                         <td>{{post.created_date}}</td>
                                     </tr>
 
