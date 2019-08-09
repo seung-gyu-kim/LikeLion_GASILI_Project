@@ -1,91 +1,54 @@
+
 {% extends 'base.html' %}
 
-{% block content %}
 
-<h1> 서비스 센터 (Service Center)</h1>
-<br>
-<br>
+    {% block content %}
 
-<div class="btn-group btn-group-toggle" data-toggle="buttons">
-  <label class="btn btn-secondary active">
-    <input type="radio" name="options" id="option1" autocomplete="off" checked> 전체
-  </label>
-  <label class="btn btn-secondary">
-    <input type="radio" name="options" id="option2" autocomplete="off"> 배송문의
-  </label>
-  <label class="btn btn-secondary">
-    <input type="radio" name="options" id="option3" autocomplete="off"> 반품/교환/환불
-  </label>
-  <label class="btn btn-secondary">
-    <input type="radio" name="options" id="option4" autocomplete="off"> 주문결제
-  </label>
-  <label class="btn btn-secondary">
-    <input type="radio" name="options" id="option5" autocomplete="off"> 회원서비스
-  </label>
-</div>
-<br>
-<br>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-<table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
+    <h1 style="text-align: center;">서비스 센터 (Service Center)</h1>
 
-<table class="table">
-  <thead class="thead-light">
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
+    <div style="padding-top: 200px;">
+    <table class="table table-hover">
+        <thead>
+        <tr style="text-align: center;">
+            <th scope="col">순번</th>
+            <th scope="col">글제목</th>
+            <th scope="col">작성자</th>
+            <th scope="col">작성일자</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for board in posts %}
+        <tr onclick="location.href='{% url 'test' board.id %}'"  style="text-align: center;">
+            <th scope="row">{{board.id}}</th>
+            <td>{{board.title}}</td>
+            <td>{{board.userName}}</td>
+            <td>{{board.date}}</td>
+        </tr>
 
-{% endblock %}
+        {%endfor%} 
+        </tbody>
+    </table>
+    </div>
+
+    <div >
+        <div >
+                {%if posts.has_previous%}
+                <a href="?page=1">First</a>
+                <a href="?page={{posts.previous_page_number}}">Previous</a>
+                {%endif%}
+                
+                <span>{{posts.number}}</span>
+                <span>of</span>
+                <span>{{posts.paginator.num_pages}}</span>
+                
+                {%if posts.has_next%}
+                <a href="?page={{posts.next_page_number}}">Next</a>
+                <a href="?page={{posts.paginator.num_pages}}">Last</a>
+                {%endif%}
+        </div>
+        <button onclick="location.href='{% url 'board_create' %}'" type="button" class="btn btn-danger" style="float: right;">글쓰기</button>
+    </div>
+
+    {% endblock %}
