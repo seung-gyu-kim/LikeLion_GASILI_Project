@@ -8,7 +8,7 @@ from .models import Board, Comment
 
 
 def board_new(request) :
-    return render(request,'board_new.html')
+        return render(request,'board_new.html')
 
 def create(request) :
     for key in request.POST:
@@ -32,30 +32,29 @@ def create(request) :
         boards.save()
         return redirect('/test/' + str(boards.id)) # URL 경로 board로 
         
-def test(request, board_id) :
-    comment = Comment()
-    board_detail = get_object_or_404(Board, pk=board_id)
-    return render(request,'test.html',{'board' : board_detail, 'comment' : comment})
+def test(request, board_id):
+        comment = Comment.objects.filter(post=board_id)
+        board_detail = get_object_or_404(Board, pk=board_id)
+        return render(request,'test.html',{'board' : board_detail, 'comment' : comment})
 
 def board(request):
-    boards = Board.objects
-    boards_list = Board.objects.all()
-    paginator = Paginator(boards_list,3)
-    page = request.GET.get('page')
-    posts = paginator.get_page(page)
+        boards = Board.objects
+        boards_list = Board.objects.all()
+        paginator = Paginator(boards_list,3)
+        page = request.GET.get('page')
+        posts = paginator.get_page(page)
+        return render(request, 'board.html',{'boards' : boards , 'posts':posts})
 
-    return render(request, 'board.html',{'boards' : boards , 'posts':posts})
+def createcomment(request, board_id):
+        #board = get_object_or_404(Board, pk=board_id) #게시글들에서 하나 뽑음
 
-def commentcreate(request, pk):
-    post = get_object_or_404(Board, pk=pk)
-    if request.method == 'POST':
         comments = Comment()
-        comments.te
-        xt = request.POST['text']
-        comments.author = '1'
-        #comments.author = request.POST['title'] 로그인 세션 확인 후 넣기
+        comments.author = request.user.username
+        comments.text = request.POST['text']
+        comments.price = request.POST['price']
         comments.created_date = timezone.datetime.now()
-        comments.post = post #board_ID 정보를 어떻게 넣을까?
+        comments.post = board_id
 
-    return render(request, 'test.html')
-    #댓글 입력했을 떄 처리해주는 함수
+        comments.save()
+
+        return redirect('test', board_id)
