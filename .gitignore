@@ -10,3 +10,4 @@ local_settings.py
 db.sqlite3
 media
 0001_initial.py
+0002_comment.py

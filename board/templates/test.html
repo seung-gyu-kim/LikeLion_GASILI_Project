@@ -1,6 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<style>
+    .comment {
+        margin: 20px 0px 20px 20px;
+    }
+</style>
 
     <div class="container" style="padding-top: 200px;">
         <h2>{{ board.title }}</h2>
@@ -22,8 +27,43 @@
 
         <br>
         <br>
+
+        
+
         <a href="{% url 'board' %}">글목록</a>
     </div>
 
+    <br>
+    <br>
 
+    <h4> 댓글</h4>
+
+    <form method="POST" action='{% url "createcomment" board.id %}'>
+    {% csrf_token %}    
+        <div>
+            <textarea class="form-control" id="exampleFormControlTextarea1" name="text" rows="3"></textarea> 
+            <h4>가격 : </h4> <input type="number" name="price" min="1" max="10">  
+        </div>
+        <br>
+        <div align='right'>
+            <button type="submit" class="btn btn-primary">등록</button>
+        </div>
+    </form>
+
+    <hr border='1'>
+    {% for comments in comment.all %}
+        <div class="comment">
+            <div class="date">
+                <strong>{{ comments.author }}</strong>  
+                {{ comments.created_date }}
+            </div>
+            <p>{{ comments.text|linebreaks }}</p>
+            <p>제시한 가격 : {{comments.price}}</p>   
+        </div>
+        <hr border='1'>
+    {% empty %}
+        <p>No comments here yet :(</p>
+    {% endfor %}
+
+    
 {% endblock %}
