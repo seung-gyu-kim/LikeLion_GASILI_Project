@@ -1,0 +1,82 @@
+@charset "utf-8";
+/* CSS Document */
+ 
+body {
+    margin: 0px; /* 언제나 전체 body에는 margin 값을 0으로 세팅해준다*/
+    font-size: 18px;
+    color: #FFF;
+}
+#box {
+    position: relative;
+    height: auto;
+    margin: auto; /*레이아웃을 싸고 있는 box의 margin을 auto로 주면 중앙정렬 효과*/
+    background-color: #F90;
+}
+#top {
+    background-color: #333;
+    height: 100px;
+    position: relative;
+}
+#left {
+    background-color: #09C;
+    float: left;
+    height: 500px;
+    width: 15%;
+    position: relative;
+}
+#main {
+    background-color: #3C0;
+    float: left;
+    height: 500px;
+    width: 85%;
+    position: relative;
+}
+#bottom {
+    background-color: #C0F;
+    height: 70px;
+    position: relative;
+    clear: both; /* 상단의 흐름을 한번 끊어주기 위해 clear를 해준다.. -.-;;??*/
+    float: left; /*새로운 흐름을 지정해줘야 깨지지 않는다*/
+}
+/* 여기까지 그냥 test용 css */ 
+
+
+/*           board_new.html 적용 css          */
+.container-board-new row {
+    width:100%; 
+    margin:0; 
+    padding:0;
+}
+
+.container-board-new {
+    margin:0,25px,25px,25px; 
+    width:100%;
+}
+
+.classframe {
+    border-radius: 5px; 
+    border:1px dashed rgb(91,155,213); 
+    width:100%; 
+}
+.mb-3 #topContent {
+    width: 200px;
+}
+.mb-3 .form-control {
+    margin-bottom: 5px;
+}
+.mb-3 #fileAdd {
+    margin: 20px 5px 5px 87%
+}
+.area-file {
+    border:1px solid black; 
+    height: 200px;  
+    overflow:scroll;
+}
+
+.area-file input {
+    margin: 10px 10px;
+}
+.confirmOrCancel {
+    text-align: center;
+}
+/*           board_new.html 적용 css          */

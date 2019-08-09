@@ -1,23 +1,26 @@
 {% extends 'base.html' %}
 
+{% load static %}
 {% block content %}
-<div class="container-fluid row" style="width:100%; margin:0; padding:0;">
+
+<div class="board-new-container row">
     <div class="containerleft">
     </div>
     <div class="containerbody">
-        <div class="container" style="margin:0,25px,25px,25px; width:100%;">
+        <div class="board-new-container" >
             <section id="recently">
                 <div class="col">
                     <div class="row">
-                        <div style="border-radius: 5px; border:1px dashed rgb(91,155,213); width:100%; ">
+                        <div class="classframe">
                         
                             <h1>게시물 등록</h1>
 
-                            <form method="POST" action="{% url 'board_create'%}" enctype="multipart/form-data">
+                            <form method="POST" action="{% url 'board_create'%}" enctype="multipart/form-data" name = "form1">
                                 {% csrf_token %}
                                 <div class="mb-3">
-                                    <div  style=" width: 200px;">
-                                            상품 구매 가격 <input class="form-control" name="order_price" type="text" value="" style="margin-bottom: 5px;">
+                                    <div id="topContent">
+                                            상품 구매 가격 
+                                            <input class="form-control" name="order_price" type="text" value="">
                                             카테고리
                                             <select class="form-control" name="category" >
                                               <option value="남성의류">남성의류</option>
@@ -35,19 +38,98 @@
                                     본문을 작성해주세요!
                                     <input type="text" class="form-control" name="title" placeholder="게시물 제목을 입력해주세요."><br>
                                     <textarea class="form-control"  rows="15" name="body" placeholder="본문 내용을 입력해주세요"></textarea>
+                                    <input type="button" value="파일추가" class="btn btn-primary" onclick="addFile()" id="fileAdd">
+                                    
+                                    <div class="area-file">
+                                        <div name="filediv">
+                                        <input type="file" name="file" />
+                                        </div>
 
+                                        <table id="preset1" style="display:none;" name="filetable1">
+                                            <tr name="tr_attach_file">
+                                                <td>
+                                                    <input type="file" name="file1"/>
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                        <table id="preset2" style="display:none;" name="filetable2">
+                                            <tr name="tr_attach_file">
+                                                <td>
+                                                    <input type="file" name="file2"/>
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                        <table id="preset3" style="display:none;" name="filetable3">
+                                            <tr name="tr_attach_file">
+                                                <td>
+                                                    <input type="file" name="file3"/>
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                        <table id="preset4" style="display:none;" name="filetable4">
+                                            <tr name="tr_attach_file">
+                                                <td>
+                                                    <input type="file" name="file4"/>
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                        <table id="preset5" style="display:none;" name="filetable5">
+                                            <tr name="tr_attach_file">
+                                                <td>
+                                                    <input type="file" name="file5"/>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
                                 </div>
-                                <div style="text-align: center;">
+
+                                <div class="confirmOrCancel">
                                         <input class="btn btn-primary" type="submit" value="등록">
                                         <a href="./" class="btn btn-primary">취소</a>
+                                        
                                 </div>
                                 
                             </form>
-                            <form enctype="multipart/form-data" action="" method="post"> <!-- Do not forget to add: enctype="multipart/form-data" -->
+                            
+
+                            <script>
+                            var count = 0;
+                            function addFile(){
+                                count++;
+                                switch (count) {
+                                    case 1 :
+                                        $('[name=form1] [name=filediv]:last').after( $('#preset1 tr').clone());
+                                        break;
+                                    case 2 :
+                                        $('[name=form1] [name=filetable1]:last').after( $('#preset2 tr').clone());
+                                        break;
+                                    case 3 :
+                                        $('[name=form1] [name=filetable2]:last').after( $('#preset3 tr').clone());
+                                        break;
+                                    case 4 :
+                                        $('[name=form1] [name=filetable3]:last').after( $('#preset4 tr').clone());
+                                        break;
+                                    case 5 :
+                                        $('[name=form1] [name=filetable4]:last').after( $('#preset5 tr').clone());
+                                        break;
+                                }
+	                            // $('#preset tr').clone() : id=preset 에서 tr 요소 셀렉트 하여 복제 !!
+	                            // form1 안에 이름이 tr_attach_file 인것 중 마지막 것 다음에 추가합니다.
+	                            // 이렇게 하면 실행때 마다 동적으로 하나씩 추가됩니다.
+                            }
+                            </script>
+                            <!---
+                            <form enctype="multipart/form-data" action="" method="post"> 
                                 {% csrf_token %}
                                 {{ form }}
                                 <input type="submit" value="Save">
                             </form>
+                            -->
+                            
                         </div>
                     </div>
                 </div>

@@ -3,196 +3,28 @@
 {% block content %}
 
 {% load staticfiles %}
-  <div class="container-fluid row" style="width:100%; margin:0; padding:0;">
-      <div class="container" style="margin:0,25px,25px,25px; width:100%;">
-          <section id="recently">
-        <div class="row"><h2 class="topletter">최근 게시물<br></h2></div>
-        
-        <!--게시물-->
-        <div class="row">
-          <div class="col col-lg-2 boardinsertbox" >
-            <div class="bodyimgstyle">
-            <img src="..." alt="..." style="height:60px; width:60px; background-color:gray;">
-            </div>
-          </div>
-          <div class="col">
-            <div class="row bodyboardbox">
-              <div style="border-radius: 5px; border:1px dashed rgb(91,155,213); width:100%; ">
-                  <div class="row bodyinsert">제목 : ...</div>
-                  <div class="row" style="font-size:10px; color:gray; padding: 3px 0 0 0;"><div class="col" style="padding: 0 0 0 25px;">작성자 : ...</div><div class="col">제품 이름 : ...</div><div class="col">사용 기간 : ...</div><div class="col">희망 가격 : ...</div></div>
-                  <div class="row bodyinsert">한 줄 어필 : ...</div>
-              </div>
-            </div>
-          </div>
-          <div class="col col-lg-1" ></div>
-        </div>
 
-<!--게시물-->
-<div class="row">
-    <div class="col col-lg-2 boardinsertbox">
-      <div class="bodyimgstyle">
-      <img src="..." alt="..." style="height:60px; width:60px; background-color:gray;">
-      </div>
-    </div>
-    <div class="col">
-      <div class="row bodyboardbox">
-        <div style="border-radius: 5px; border:1px dashed rgb(91,155,213); width:100%; ">
-            <div class="row bodyinsert">제목 : ...</div>
-            <div class="row" style="font-size:10px; color:gray; padding: 3px 0 0 0;"><div class="col" style="padding: 0 0 0 25px;">작성자 : ...</div><div class="col">제품 이름 : ...</div><div class="col">사용 기간 : ...</div><div class="col">희망 가격 : ...</div></div>
-            <div class="row bodyinsert">한 줄 어필 : ...</div>
-        </div>
-      </div>
-    </div>
-    <div class="col col-lg-1" ></div>
-  </div>
-
-  <!--게시물-->
-  <div class="row">
-      <div class="col col-lg-2 boardinsertbox">
-        <div class="bodyimgstyle">
-        <img src="..." alt="..." style="height:60px; width:60px; background-color:gray;">
-        </div>
-      </div>
-      <div class="col">
-        <div class="row bodyboardbox">
-          <div style="border-radius: 5px; border:1px dashed rgb(91,155,213); width:100%; ">
-              <div class="row bodyinsert">제목 : ...</div>
-              <div class="row" style="font-size:10px; color:gray; padding: 3px 0 0 0;"><div class="col" style="padding: 0 0 0 25px;">작성자 : ...</div><div class="col">제품 이름 : ...</div><div class="col">사용 기간 : ...</div><div class="col">희망 가격 : ...</div></div>
-              <div class="row bodyinsert">한 줄 어필 : ...</div>
+    <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-interval="1000">
+            <img src="{% static 'mainimg3.PNG' %}" class="d-block w-100" alt="..." style="width: 100%;">
+          </div>
+          <div class="carousel-item" data-interval="1000">
+             <img src="{% static 'mainimg4.PNG' %}" class="d-block w-100" alt="..."style="width: 100%;">
+          </div>
+          <div class="carousel-item" data-interval="1000">
+            <img src="{% static 'gratisography-330H.jpg' %}" class="d-block w-100" alt="..."style="width: 100%;">
           </div>
         </div>
+        <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
       </div>
-      <div class="col col-lg-1" ></div>
-    </div>
-  
-          </section>
-
-          <div style="padding: 20px 25px 0 25px;"><hr></div>
-          <section id="recommend">
-      <div class="row"><h2 class="topletter">추천 게시물<br></h2></div>
-      
-      <!--게시물-->
-      <div class="row">
-        <div class="col col-lg-2 boardinsertbox">
-          <div class="bodyimgstyle">
-          <img src="..." alt="..." style="height:60px; width:60px; background-color:gray;">
-          </div>
-        </div>
-        <div class="col">
-          <div class="row bodyboardbox">
-            <div style="border-radius: 5px; border:1px dashed rgb(91,155,213); width:100%; ">
-                <div class="row bodyinsert">제목 : ...</div>
-                <div class="row" style="font-size:10px; color:gray; padding: 3px 0 0 0;"><div class="col" style="padding: 0 0 0 25px;">작성자 : ...</div><div class="col">제품 이름 : ...</div><div class="col">사용 기간 : ...</div><div class="col">희망 가격 : ...</div></div>
-                <div class="row bodyinsert">한 줄 어필 : ...</div>
-            </div>
-          </div>
-        </div>
-        <div class="col col-lg-1" ></div>
-      </div>
-
-<!--게시물-->
-<div class="row">
-  <div class="col col-lg-2 boardinsertbox">
-    <div class="bodyimgstyle">
-    <img src="..." alt="..." style="height:60px; width:60px; background-color:gray;">
-    </div>
-  </div>
-  <div class="col">
-    <div class="row bodyboardbox">
-      <div style="border-radius: 5px; border:1px dashed rgb(91,155,213); width:100%; ">
-          <div class="row bodyinsert">제목 : ...</div>
-          <div class="row" style="font-size:10px; color:gray; padding: 3px 0 0 0;"><div class="col" style="padding: 0 0 0 25px;">작성자 : ...</div><div class="col">제품 이름 : ...</div><div class="col">사용 기간 : ...</div><div class="col">희망 가격 : ...</div></div>
-          <div class="row bodyinsert">한 줄 어필 : ...</div>
-      </div>
-    </div>
-  </div>
-  <div class="col col-lg-1" ></div>
-</div>
-
-<!--게시물-->
-<div class="row">
-    <div class="col col-lg-2 boardinsertbox">
-      <div class="bodyimgstyle">
-      <img src="..." alt="..." style="height:60px; width:60px; background-color:gray;">
-      </div>
-    </div>
-    <div class="col">
-      <div class="row bodyboardbox">
-        <div style="border-radius: 5px; border:1px dashed rgb(91,155,213); width:100%; ">
-            <div class="row bodyinsert">제목 : ...</div>
-            <div class="row" style="font-size:10px; color:gray; padding: 3px 0 0 0;"><div class="col" style="padding: 0 0 0 25px;">작성자 : ...</div><div class="col">제품 이름 : ...</div><div class="col">사용 기간 : ...</div><div class="col">희망 가격 : ...</div></div>
-            <div class="row bodyinsert">한 줄 어필 : ...</div>
-        </div>
-      </div>
-    </div>
-    <div class="col col-lg-1" ></div>
-  </div>
-          </section>
-        
-          <div style="padding: 20px 25px 0 25px;"><hr></div>
-
-          <section id="deadline">
-          <div class="row"><h2 class="topletter">마감 촉박 게시물<br></h2></div>
-          
-          <!--게시물-->
-          <div class="row">
-            <div class="col col-lg-2 boardinsertbox">
-              <div class="bodyimgstyle">
-              <img src="..." alt="..." style="height:60px; width:60px; background-color:gray;">
-              </div>
-            </div>
-            <div class="col">
-              <div class="row bodyboardbox">
-                <div style="border-radius: 5px; border:1px dashed rgb(91,155,213); width:100%; ">
-                    <div class="row bodyinsert">제목 : ...</div>
-                    <div class="row" style="font-size:10px; color:gray; padding: 3px 0 0 0;"><div class="col" style="padding: 0 0 0 25px;">작성자 : ...</div><div class="col">제품 이름 : ...</div><div class="col">사용 기간 : ...</div><div class="col">희망 가격 : ...</div></div>
-                    <div class="row bodyinsert">한 줄 어필 : ...</div>
-                </div>
-              </div>
-            </div>
-            <div class="col col-lg-1" ></div>
-          </div>
-  
-  <!--게시물-->
-  <div class="row">
-      <div class="col col-lg-2 boardinsertbox">
-        <div class="bodyimgstyle">
-        <img src="..." alt="..." style="height:60px; width:60px; background-color:gray;">
-        </div>
-      </div>
-      <div class="col">
-        <div class="row bodyboardbox">
-          <div style="border-radius: 5px; border:1px dashed rgb(91,155,213); width:100%; ">
-              <div class="row bodyinsert">제목 : ...</div>
-              <div class="row" style="font-size:10px; color:gray; padding: 3px 0 0 0;"><div class="col" style="padding: 0 0 0 25px;">작성자 : ...</div><div class="col">제품 이름 : ...</div><div class="col">사용 기간 : ...</div><div class="col">희망 가격 : ...</div></div>
-              <div class="row bodyinsert">한 줄 어필 : ...</div>
-          </div>
-        </div>
-      </div>
-      <div class="col col-lg-1" ></div>
-    </div>
-  
-    <!--게시물-->
-    <div class="row">
-        <div class="col col-lg-2 boardinsertbox">
-          <div class="bodyimgstyle">
-          <img src="..." alt="..." style="height:60px; width:60px; background-color:gray;">
-          </div>
-        </div>
-        <div class="col">
-          <div class="row bodyboardbox">
-            <div style="border-radius: 5px; border:1px dashed rgb(91,155,213); width:100%; ">
-                <div class="row bodyinsert">제목 : ...</div>
-                <div class="row" style="font-size:10px; color:gray; padding: 3px 0 0 0;"><div class="col" style="padding: 0 0 0 25px;">작성자 : ...</div><div class="col">제품 이름 : ...</div><div class="col">사용 기간 : ...</div><div class="col">희망 가격 : ...</div></div>
-                <div class="row bodyinsert">한 줄 어필 : ...</div>
-            </div>
-          </div>
-        </div>
-        <div class="col col-lg-1" ></div>
-      </div>
-          </section>
-        </div>
-    </div>
 
 
  

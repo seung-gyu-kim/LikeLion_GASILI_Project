@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html>
 <head>
   
@@ -18,7 +19,10 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   
+  <!-- static css file-->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
+  
   <!--searchbar link-->
   <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
@@ -32,48 +36,9 @@
   
   <style>
     
-  .searchcolor{
-    background-color:rgb(243,106,95);
-    border:1.5px solid rgb(248, 127, 118);
-  }
-  .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default {
-    color: #333;
-    background-color: rgb(248, 80, 68);
-    border-color: rgb(248, 127, 118);
-}
-  .mynavbar{
-    background-color:rgb(248, 127, 118);
-    width: 100%;
-    height:50px;
-    top:0;
-    left:0;
-    border-radius: 0 0 10px 10px;
-  }
-  .categorystyle{
-    position: relative;
-    left:15px;
-    width:98px;
-    height:30px;
-    top:-10px;
-    border-radius: 0 0 5px 5px;
-    background-color:rgb(112,173,71);
-    
-  }
-  .navitems{
-    color:white;
-    display:block;
-    padding:10px 16px;
-  }
-  .navitems:hover{
-    font-weight:500;
-    text-decoration :none;
-    border-radius: 0 0 5px 5px;
-    color:white;
-  }
-  .nav>li>a:hover, .nav>li>a:focus {
-    text-decoration: none;
-    background-color: rgb(112,173,71);
-  }
+ 
+ 
+  
     .containerleft{
         padding-top: 10px;
         width:20%;
@@ -92,54 +57,66 @@
         float:left;
         background-color:rgb(255,250,235);
       }
-      .idbox{
-        border-radius: 5px;
-        padding:7px;
-        margin:25px 20px 10px 10px;
-        border:1.5px solid rgb(255,192,0);
-        border:2px solid rgb(255, 166, 0);
-        background: linear-gradient( to bottom,rgb(252, 236, 190), rgb(255, 209, 70) );
-        height:300px;
-      }
-      .idfont{
-        padding: 0 0 0 25px; 
-        font-weight:500; 
-        font-size:30px;
-        font-family: 'Single Day', cursive;
-        color:rgb(255, 174, 0);
-      }
-      .idinsert{
-        padding: 3px 0 0 25px;
-        font-family: 'Hi Melody', cursive;
-        font-size:20px;
-      }
-      .topletter{
-        font-family: 'Gamja Flower', cursive; 
-        font-weight:500; 
-        padding:10px 20px 20px 30px;
-        }
-      .bodyimgstyle{
-        border:1px solid rgb(56, 99, 240); 
-        height:70px; 
-        margin:0 5px 0 5px;
-        border-radius: 5px;
-        }
-      .bodyboardbox{
-        background-color:rgb(188,218,252); 
-        height:70px; 
-        margin:5px;
-        border-radius: 5px;
-        padding:5px;
-        }
-      .bodyinsert{
-        padding: 3px 0 0 25px;
-        font-size:10px;
-        color:gray;
-      }
-      .boardinsertbox{
-        margin:5px 10px 5px 15px;
-      }
+      .topnavbar{
 
+        width: 100%;
+        height:33px;
+        top:0;
+        left:0;
+       
+        background-image: url({% static 'illustration9.PNG' %});
+        background-repeat: repeat;
+      }
+      .nav>li>a:hover, .nav>li>a:focus {
+        text-decoration: none;
+        background:rgba(255, 255, 255, 0);
+    }
+    a {
+      color:black;
+  }
+  .searchcolor{
+    background-color:rgb(180, 179, 179);
+    border:1.5px solid rgb(255, 255, 255);
+  }
+  .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default {
+    color: #333;
+    background-color: rgb(148, 148, 148);
+    border-color: rgb(255, 255, 255);
+}
+.categorystyle{
+  position: relative;
+  left:50px;
+  top:-20px;
+  width:110px;
+  height:40px;
+  border-radius: 5px;
+  background-color:rgb(112,173,71);
+  z-index: 10;
+}
+.navitems{
+  color:white;
+  display:block;
+  padding:10px;
+  font-size:17px;
+}
+.navitems:hover{
+  font-weight:500;
+  text-decoration :none;
+  color:white;
+  width:110px;
+  height:40px;
+  border-radius: 5px;
+  background-color:rgb(112,173,71);
+}
+.nav>li>a:hover, .nav>li>a:focus {
+  text-decoration: none;
+  background-color: rgba(112, 173, 71, 0);
+}
+.dropdown-item:focus, .dropdown-item:hover {
+  color: orange;
+  text-decoration: none;
+  background-color: #f8f9fa00;
+}
   </style>
 </head>
 
@@ -147,49 +124,60 @@
 <body>
     
   {% load staticfiles %}
-  <div class="mynavbar">
+
+  <div class="topnavbar">
+      <ul class="nav justify-content-end" style="margin-right: 50px; vertical-align:center; height:30px;">
+          <li class="nav-item" style=" height:30px; padding:5px">
+            <span >환영합니다. &nbsp;</span><span style="font-size:20px;"> 김하경 </span><span style="margin-right:80px;">님!</span>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" href="#">Service</a>
+          </li>
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+              <a class="nav-link"  href="{% url 'update' %}" style="margin:0 40px 0 40px;">Mypage</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="javascript:{document.getElementById('logout').submit()}">Logout</a>
+            </li>
+            <form id="logout" method="POST" action="{% url 'logout' %}">
+                {% csrf_token %} <input type="hidden" />
+              </form>
+          {% else %}
+          
+    
+          <li class="nav-item">
+              <a class="nav-link"  href="{% url 'signup' %}" style="margin:0 40px 0 40px;">Sign Up</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'login' %}">Sign In</a>
+            </li>
+          {% endif %}
+        </ul>
+  </div>
+
+  <div style="height:100px; padding:20px 40px 20px 40px;">
     <div class="row">
-      <div class="col-md-auto" style="margin-left:35px;"><a href="{% url 'index' %}"><img src="{% static '로고.PNG' %}"height="40px" width="40px" alter="로고" style="margin:5px;"></a></div> 
-      <div class="col-sm-3 col-md-3">
-          <form class="navbar-form" role="search">
-          <div class="input-group">
-              <input type="text" class="form-control searchcolor fontcolor" placeholder="" name="q">
-              <div class="input-group-btn">
-                  <button class="btn btn-default searchcolor" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-              </div>
+        <div class="col-md-auto" style="margin-left:35px;"><a href="{% url 'index' %}"><img src="{% static '로고.PNG' %}"height="60px" width="60px" alter="로고" ></a></div> 
+        <div class="col"></div>
+        <div class="col-sm-3 col-md-3" style="padding-top:15px;">
+            <form class="navbar-form" role="search">
+            <div class="input-group">
+                <input type="text" class="form-control searchcolor fontcolor" placeholder="" name="q">
+                <div class="input-group-btn">
+                    <button class="btn btn-default searchcolor" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                </div>
+            </div>
+            </form> 
           </div>
-          </form> 
-        </div>
-      <div class="col"> </div>
-      <div class="col col-lg-1" style="color:white; font-size:20px; padding:10px 0 0 0;"><a href="#" style="text-decoration :none; color:white;">Service</a></div>
-      {% if user.is_authenticated %}
-      <div class="col col-lg-1 dropdown" style="color:white; font-size:20px; padding:10px 0 0 10px;">
-        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false" style="color:white; font-size:20px; padding:0px 0 0 0;">
-          My
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="{% url 'update' %}">회원정보</a>
-          <a class="dropdown-item" href="javascript:{document.getElementById('logout').submit()}">Logout</a>
-          <form id="logout" method="POST" action="{% url 'logout' %}">
-            {% csrf_token %} <input type="hidden" />
-          </form>
-        </div>
-      </div>
-      {% else %}
-      <div class="col col-lg-1" style="color:white; font-size:20px; padding:10px 0 0 0;"><a href="{% url 'signup' %}"
-          style="text-decoration :none; color:white;">Sign Up</a></div>
-      <div class="col col-lg-1" style="color:white; font-size:20px; padding:10px 0 0 0;"><a href="{% url 'login' %}"
-          style="text-decoration :none; color:white;">Sign in</a></div>
-      {% endif %}
     </div>
-    </div>
-    <div class="containerleft">
-    <div class="categorystyle">
+  </div>
+  <div class="categorystyle">
       <ul class="nav nav-pills">
         <li class="nav-item dropdown">
          <a class="navitems dropdown-toggle"data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="color:white;">Category</a>
-         <div class="dropdown-menu submenusize">
+         <div class="dropdown-menu">
               <a class="dropdown-item" href="{% url 'board' %}">남성의류</a>
               <a class="dropdown-item" href="{% url 'board' %}">여성의류</a>
               <a class="dropdown-item" href="{% url 'board' %}">귀금속/액세서리</a>
@@ -207,40 +195,13 @@
           </li>
       </ul>
     </div>
-</div>
 
-<div class="containerbody"></div>
-<div class="containerright" style="height:40px;"></div>
+    <div style="width:100%; height:300px;  position: relative; top:-40px;">
+        {% block content %}
+        {% endblock %}
+    </div>
 
-<!--input content here!-->
-<div class="container-fluid row" style="margin:0; width:100%; padding:0;">
 
-<div class="containerleft"></div>
-<div class="containerbody">
-  
-{% block content %}
-{% endblock %}
-
-</div>
-<div class="containerright">
-  {% if user.is_authenticated %}
-
-  <div class="idbox" style="background:url({% static 'illustration6.PNG' %});background-repeat: no-repeat; background-size:100%;" >          
-      <div class="row" style="padding:10px 0 0 25px;"><img src="..." alt="..." style="height:45px; width:60px; background-color:gray;"></div>
-      <div class="row"><div class="col idfont">{{ user.nickname }}</div></div>
-      <div class="row" style="height:7px;"></div>
-      <div class="row idinsert">등급 : ...</div>
-      <div class="row idinsert">최근 글 : ...</div>
-      <div class="row idinsert">최근 댓글 : ...</div>
-      <div class="row idinsert">답장 : ...</div>
-      <div class="row" style="height:25px;"></div>
-      <div class="row" style="font-size:7px; padding:0 0 0 25px;"><a href="{% url 'update' %}" sytle="text-decoration:none;">마이페이지</a></div>
-  </div>
-
-{% else %}
-{% endif %}
-</div>
-</div>
 </body>
 
 </html>

@@ -12,8 +12,13 @@ class Board(models.Model) :
     order_price = models.PositiveIntegerField(default=0)
     state = models.CharField(max_length=20)
     userName = models.CharField(max_length=50)
-    image = models.ImageField(upload_to='images/')
-    
+    image = models.ImageField(upload_to='images/', blank=True)
+    image1 = models.ImageField(upload_to='images/', blank=True)
+    image2 = models.ImageField(upload_to='images/', blank=True)
+    image3 = models.ImageField(upload_to='images/', blank=True)
+    image4 = models.ImageField(upload_to='images/', blank=True)
+    image5 = models.ImageField(upload_to='images/', blank=True)
+
     def __str__(self) :
         return self.title
     #제목
