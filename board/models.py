@@ -31,9 +31,10 @@ class Board(models.Model) :
     #작성자
 
 class Comment(models.Model):
-    post = models.ForeignKey(Board, on_delete=models.CASCADE, null=True, related_name='comments')
+    post = models.IntegerField()
     author = models.CharField(max_length=200)
     text = models.TextField()
+    price = models.IntegerField()
     created_date = models.DateTimeField('date published')
     approved_comment = models.BooleanField(default=False)
 

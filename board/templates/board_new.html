@@ -101,6 +101,9 @@
                             function addFile(){
                                 count++;
                                 switch (count) {
+                                    case 0 :
+                                        $('[name=form1] [name=filediv]:last').after( $('#preset tr').clone() );
+                                        break;
                                     case 1 :
                                         $('[name=form1] [name=filediv]:last').after( $('#preset1 tr').clone());
                                         break;
