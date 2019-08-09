@@ -46,7 +46,15 @@
                 <a href="?page={{posts.paginator.num_pages}}">Last</a>
                 {%endif%}
         </div>
-        <button onclick="location.href='{% url 'board_new' %}'" type="button" class="btn btn-danger" style="float: right;">글쓰기</button>
+
+        {% if user.is_authenticated %}
+        <a href = "{% url 'board_new' %}"><button type="button" class="btn btn-danger" style="float: right;">글쓰기</button></a>
+        {% else %}
+        <button type="button" onclick="alert('로그인을 해주세요'); location.replace('../accounts/login/');"   class="btn btn-danger" style="float: right;">글쓰기</button>
+        {% endif %}
+        
     </div>
+
+    
 
     {% endblock %}
