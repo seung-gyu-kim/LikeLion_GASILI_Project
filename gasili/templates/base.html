@@ -171,33 +171,7 @@
             </div>
             </form> 
           </div>
-<<<<<<< HEAD
-          </form> 
-        </div>
-      <div class="col"> </div>
-      <div class="col col-lg-1" style="color:white; font-size:20px; padding:10px 0 0 0;"><a href="{% url 'servicecenter' %}" style="text-decoration :none; color:white;">Service</a></div>
-      {% if user.is_authenticated %}
-      <div class="col col-lg-1 dropdown" style="color:white; font-size:20px; padding:10px 0 0 10px;">
-        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false" style="color:white; font-size:20px; padding:0px 0 0 0;">
-          My
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="{% url 'update' %}">회원정보</a>
-          <a class="dropdown-item" href="javascript:{document.getElementById('logout').submit()}">Logout</a>
-          <form id="logout" method="POST" action="{% url 'logout' %}">
-            {% csrf_token %} <input type="hidden" />
-          </form>
-        </div>
-      </div>
-      {% else %}
-      <div class="col col-lg-1" style="color:white; font-size:20px; padding:10px 0 0 0;"><a href="{% url 'signup' %}"
-          style="text-decoration :none; color:white;">Sign Up</a></div>
-      <div class="col col-lg-1" style="color:white; font-size:20px; padding:10px 0 0 0;"><a href="{% url 'login' %}"
-          style="text-decoration :none; color:white;">Sign in</a></div>
-      {% endif %}
-=======
->>>>>>> eaab443e080357667b479283c8aab0632afce927
+
     </div>
   </div>
   <div class="categorystyle">
