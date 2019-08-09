@@ -14,7 +14,10 @@
                         <div class="classframe">
                         
                             <h1>게시물 등록</h1>
+                            {% if error %}
+                            <script> alert('모든 항목을 입력해주세요.');</script>
 
+                            {% endif %}
                             <form method="POST" action="{% url 'board_create'%}" enctype="multipart/form-data" name = "form1">
                                 {% csrf_token %}
                                 <div class="mb-3">
@@ -129,7 +132,7 @@
                                         break;
                                     case 6 :
                                         $("#file5").remove();
-                                        count--;
+                                        count = count - 2;
                                         break;
                                     default :
                                         break
