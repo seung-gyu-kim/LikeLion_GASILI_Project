@@ -1,9 +1,0 @@
-diff a/gasili/templates/base.html b/gasili/templates/base.html	(rejected hunks)
-@@ -148,6 +148,7 @@
-   {% load staticfiles %}
-   <div class="mynavbar">
-     <div class="row">
-+      <div class="col-md-auto" style="margin-left:35px;"><a href="{% url 'index' %}"><img src="{% static '로고.PNG' %}"height="40px" width="40px" alter="로고" style="margin:5px;"></a></div>    
-       <div class="col-sm-3 col-md-3">
-           <form class="navbar-form" role="search">
-           <div class="input-group">

@@ -14,7 +14,10 @@
                         <div class="classframe">
                         
                             <h1>게시물 등록</h1>
+                            {% if error %}
+                            <script> alert('모든 항목을 입력해주세요.');</script>
 
+                            {% endif %}
                             <form method="POST" action="{% url 'board_create'%}" enctype="multipart/form-data" name = "form1">
                                 {% csrf_token %}
                                 <div class="mb-3">
@@ -38,17 +41,22 @@
                                     본문을 작성해주세요!
                                     <input type="text" class="form-control" name="title" placeholder="게시물 제목을 입력해주세요."><br>
                                     <textarea class="form-control"  rows="15" name="body" placeholder="본문 내용을 입력해주세요"></textarea>
-                                    <input type="button" value="파일추가" class="btn btn-primary" onclick="addFile()" id="fileAdd">
+                                    <div class="flexbox">
+                                        <div class="item"><input type="button" class="btn btn-primary" value="파일추가"  onclick="addFile()" id="fileAdd" ></div>
+                                        <div class="item"><input type="button" class="btn btn-primary" value="파일삭제"  onclick="removeFile()" id="fileRemove"></div>
+                                    </div>
+
+                                    
                                     
                                     <div class="area-file">
                                         <div name="filediv">
-                                        <input type="file" name="file" />
+                                        <input type="file" name="file" id="file"/>
                                         </div>
 
                                         <table id="preset1" style="display:none;" name="filetable1">
                                             <tr name="tr_attach_file">
                                                 <td>
-                                                    <input type="file" name="file1"/>
+                                                    <input type="file" name="file1" id="file1" />
                                                 </td>
                                             </tr>
                                         </table>
@@ -56,7 +64,7 @@
                                         <table id="preset2" style="display:none;" name="filetable2">
                                             <tr name="tr_attach_file">
                                                 <td>
-                                                    <input type="file" name="file2"/>
+                                                    <input type="file" name="file2" id="file2"/>
                                                 </td>
                                             </tr>
                                         </table>
@@ -64,7 +72,7 @@
                                         <table id="preset3" style="display:none;" name="filetable3">
                                             <tr name="tr_attach_file">
                                                 <td>
-                                                    <input type="file" name="file3"/>
+                                                    <input type="file" name="file3" id="file3"/>
                                                 </td>
                                             </tr>
                                         </table>
@@ -72,7 +80,7 @@
                                         <table id="preset4" style="display:none;" name="filetable4">
                                             <tr name="tr_attach_file">
                                                 <td>
-                                                    <input type="file" name="file4"/>
+                                                    <input type="file" name="file4" id="file4"/>
                                                 </td>
                                             </tr>
                                         </table>
@@ -80,7 +88,7 @@
                                         <table id="preset5" style="display:none;" name="filetable5">
                                             <tr name="tr_attach_file">
                                                 <td>
-                                                    <input type="file" name="file5"/>
+                                                    <input type="file" name="file5" id="file5"/>
                                                 </td>
                                             </tr>
                                         </table>
@@ -98,8 +106,43 @@
 
                             <script>
                             var count = 0;
+                            function removeFile() {
+                               
+                                
+                                switch (count) {
+                                    case 1 :
+                                        $("#file1").remove();
+                                        count--;
+                                        break;
+                                    case 2 :
+                                        $("#file2").remove();
+                                        count--;
+                                        break;
+                                    case 3 :
+                                        $("#file3").remove();
+                                        count--;
+                                        break;
+                                    case 4 :
+                                        $("#file4").remove();
+                                        count--;
+                                        break;
+                                    case 5 :
+                                        $("#file5").remove();
+                                        count--;
+                                        break;
+                                    case 6 :
+                                        $("#file5").remove();
+                                        count = count - 2;
+                                        break;
+                                    default :
+                                        break
+                                }
+                                }
+
+                            
                             function addFile(){
-                                count++;
+                                if (count < 6 ) count++;
+                                
                                 switch (count) {
                                     case 1 :
                                         $('[name=form1] [name=filediv]:last').after( $('#preset1 tr').clone());
@@ -116,6 +159,8 @@
                                     case 5 :
                                         $('[name=form1] [name=filetable4]:last').after( $('#preset5 tr').clone());
                                         break;
+                                    default :
+                                        break
                                 }
                                 
 	                            // $('#preset tr').clone() : id=preset 에서 tr 요소 셀렉트 하여 복제 !!
