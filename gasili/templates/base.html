@@ -226,10 +226,12 @@ section .section-title {
 
   <div class="topnavbar">
       <ul class="nav justify-content-end" style="margin-right: 50px; vertical-align:center; height:30px;">
-          <li class="nav-item" style=" height:30px;">
-            <span >환영합니다. &nbsp;</span><span style="font-size:20px;"> 김하경 </span><span style="margin-right:80px;">님!</span>
-          </li>
-          
+          {% if user.is_authenticated %}
+            <li class="nav-item" style=" height:30px;">
+              <span >환영합니다. &nbsp;</span><span style="font-size:20px;"> {{user}} </span><span style="margin-right:80px;">님!</span>
+            </li>
+          {% endif %}
+
           <li class="nav-item">
             <a class="nav-link" href="#" style="padding:0;">Service</a>
           </li>
