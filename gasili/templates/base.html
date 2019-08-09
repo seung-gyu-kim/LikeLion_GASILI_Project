@@ -29,33 +29,35 @@
   <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
   <!--fontstylelink-->
-  <link href="https://fonts.googleapis.com/css?family=Gamja+Flower&display=swap&subset=korean" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Single+Day&display=swap&subset=korean" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Hi+Melody&display=swap&subset=korean" rel="stylesheet">
-
   
+  <link href="https://fonts.googleapis.com/css?family=Gugi&display=swap&subset=korean" rel="stylesheet">
+
+
+<!--footer-->
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
   <style>
     
- 
- 
+    
+
   
     .containerleft{
         padding-top: 10px;
         width:20%;
         float:left;
-        background-color:rgb(247,252,242);
-      
+        background-color:rgb(255, 239, 210);
       }
       .containerbody{
         padding-top: 10px;
         width:60%;
         float:left;
+        background-color:rgb(255, 239, 210);
       }
       .containerright{
         padding-top: 10px;
         width:20%;
         float:left;
-        background-color:rgb(255,250,235);
+        background-color:rgb(255, 239, 210);
       }
       .topnavbar{
 
@@ -64,8 +66,8 @@
         top:0;
         left:0;
        
-        background-image: url({% static 'illustration9.PNG' %});
-        background-repeat: repeat;
+       background: linear-gradient( to bottom,rgb(255, 234, 196), rgb(255,215,141) );
+
       }
       .nav>li>a:hover, .nav>li>a:focus {
         text-decoration: none;
@@ -73,14 +75,18 @@
     }
     a {
       color:black;
-  }
+      font-size:17px;
+    }
+    a:hover{
+      color:orange;
+    }
   .searchcolor{
-    background-color:rgb(180, 179, 179);
+    background-color:rgb(253, 174, 84);
     border:1.5px solid rgb(255, 255, 255);
   }
   .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default {
     color: #333;
-    background-color: rgb(148, 148, 148);
+    background-color: rgb(255, 152, 35);
     border-color: rgb(255, 255, 255);
 }
 .categorystyle{
@@ -100,7 +106,7 @@
   font-size:17px;
 }
 .navitems:hover{
-  font-weight:500;
+  
   text-decoration :none;
   color:white;
   width:110px;
@@ -117,29 +123,156 @@
   text-decoration: none;
   background-color: #f8f9fa00;
 }
+
+.dropdown-menu{
+  width:200px;
+  font-size:20px;
+}
+
+.fontcolor{
+  font-size:15px;
+}
+
+.topletter{
+  font-family: 'Gugi', cursive; 
+  font-size:80px; 
+  text-align:center;
+}
+
+.textfont{
+  font-size:15px; font-family: 'Gugi', cursive; margin-left:60px;
+}
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+
+section{
+  margin-top:-60px;
+    padding: 60px 0;
+    position: relative;
+    width: 100%;
+
+}
+
+section .section-title {
+    text-align: center;
+    color: rgb(253, 174, 84);
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+#footer {
+    background: rgb(253, 174, 84) !important;
+}
+#footer h5{
+	padding-left: 10px;
+    border-left: 3px solid #eeeeee;
+    padding-bottom: 6px;
+    margin-bottom: 20px;
+    color:#ffffff;
+}
+#footer a {
+    color: #ffffff;
+    text-decoration: none !important;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+#footer ul.social li{
+	padding: 3px 0;
+}
+#footer ul.social li a i {
+    margin-right: 5px;
+	font-size:25px;
+	-webkit-transition: .5s all ease;
+	-moz-transition: .5s all ease;
+	transition: .5s all ease;
+}
+#footer ul.social li:hover a i {
+	font-size:30px;
+	margin-top:-10px;
+}
+#footer ul.social li a,
+#footer ul.quick-links li a{
+	color:#ffffff;
+}
+#footer ul.social li a:hover{
+	color:#eeeeee;
+}
+#footer ul.quick-links li{
+	padding: 3px 0;
+	-webkit-transition: .5s all ease;
+	-moz-transition: .5s all ease;
+	transition: .5s all ease;
+}
+#footer ul.quick-links li:hover{
+	padding: 3px 0;
+	margin-left:5px;
+	font-weight:700;
+}
+#footer ul.quick-links li a i{
+	margin-right: 5px;
+}
+#footer ul.quick-links li:hover a i {
+    font-weight: 700;
+}
+
+@media (max-width:767px){
+	#footer h5 {
+    padding-left: 0;
+    border-left: transparent;
+    padding-bottom: 0px;
+    margin-bottom: 10px;
+}
+}
+
+@import url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
+.login-block{
+float:left;
+width:100%;
+padding : 50px 0;
+}
+.banner-sec{background:url(https://static.pexels.com/photos/33972/pexels-photo.jpg)  no-repeat left bottom; background-size:cover; min-height:500px; border-radius: 0 10px 10px 0; padding:0;}
+.bodycontainer{background:#fff; border-radius: 10px; box-shadow:15px 20px 0px rgba(0,0,0,0.1); margin:30px 55px 30px 15px;}
+.carousel-inner{border-radius:0 10px 10px 0;}
+.carousel-caption{text-align:left; left:5%;}
+.login-sec{padding: 50px 30px; position:relative;}
+.login-sec .copy-text{position:absolute; width:80%; bottom:20px; font-size:13px; text-align:center;}
+.login-sec .copy-text i{color:#FEB58A;}
+.login-sec .copy-text a{color:#E36262;}
+.login-sec h2{margin-bottom:30px; font-weight:800; font-size:30px; color: #DE6262;}
+.login-sec h2:after{content:" "; width:100px; height:5px; background:#FEB58A; display:block; margin-top:20px; border-radius:3px; margin-left:auto;margin-right:auto}
+.btn-login{background: #DE6262; color:#fff; font-weight:600;}
+.banner-text{width:70%; position:absolute; bottom:40px; padding-left:20px;}
+.banner-text h2{color:#fff; font-weight:600;}
+.banner-text h2:after{content:" "; width:100px; height:5px; background:#FFF; display:block; margin-top:20px; border-radius:3px;}
+.banner-text p{color:#fff;}
+
   </style>
 </head>
 
 
 <body>
-    
+  
+    <div class="content">
   {% load staticfiles %}
 
   <div class="topnavbar">
       <ul class="nav justify-content-end" style="margin-right: 50px; vertical-align:center; height:30px;">
-          <li class="nav-item" style=" height:30px; padding:5px">
-            <span >환영합니다. &nbsp;</span><span style="font-size:20px;"> 김하경 </span><span style="margin-right:80px;">님!</span>
-          </li>
-          
+          {% if user.is_authenticated %}
+            <li class="nav-item" style=" height:30px;">
+              <span >환영합니다. &nbsp;</span><span style="font-size:20px;"> {{user}} </span><span style="margin-right:80px;">님!</span>
+            </li>
+          {% endif %}
+
           <li class="nav-item">
-            <a class="nav-link" href="#">Service</a>
+            <a class="nav-link" href="#" style="padding:0;">Service</a>
+
+            <a class="nav-link" href="{% url 'servicecenter' %}">Service</a>
           </li>
           {% if user.is_authenticated %}
           <li class="nav-item">
-              <a class="nav-link"  href="{% url 'update' %}" style="margin:0 40px 0 40px;">Mypage</a>
+              <a class="nav-link"  href="{% url 'update' %}" style="margin:0 60px 0 60px; padding:0;">Mypage</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="javascript:{document.getElementById('logout').submit()}">Logout</a>
+              <a class="nav-link" href="javascript:{document.getElementById('logout').submit()}" style="padding:0;">Logout</a>
             </li>
             <form id="logout" method="POST" action="{% url 'logout' %}">
                 {% csrf_token %} <input type="hidden" />
@@ -148,10 +281,10 @@
           
     
           <li class="nav-item">
-              <a class="nav-link"  href="{% url 'signup' %}" style="margin:0 40px 0 40px;">Sign Up</a>
+              <a class="nav-link"  href="{% url 'signup' %}" style="margin:0 60px 0 60px;padding:0;">Sign Up</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'login' %}">Sign In</a>
+              <a class="nav-link" href="{% url 'login' %}" style="padding:0;">Sign In</a>
             </li>
           {% endif %}
         </ul>
@@ -163,14 +296,15 @@
         <div class="col"></div>
         <div class="col-sm-3 col-md-3" style="padding-top:15px;">
             <form class="navbar-form" role="search">
-            <div class="input-group">
-                <input type="text" class="form-control searchcolor fontcolor" placeholder="" name="q">
-                <div class="input-group-btn">
-                    <button class="btn btn-default searchcolor" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            <div class="input-group" style="width:300px;">
+                <input type="text" class="form-control searchcolor fontcolor" style=" border-radius: 5px; " placeholder="" name="q">
+                <div class="input-group-btn" style="width:12%;">
+                    <button class="btn btn-default searchcolor" type="submit" style="width:100%; height:100%;  border-radius: 5px; "><i class="glyphicon glyphicon-search"></i></button>
                 </div>
             </div>
             </form> 
           </div>
+
     </div>
   </div>
   <div class="categorystyle">
@@ -196,12 +330,72 @@
       </ul>
     </div>
 
-    <div style="width:100%; height:300px;  position: relative; top:-40px;">
+    <div style="width:100%; position: relative; top:-40px;">
         {% block content %}
         {% endblock %}
     </div>
 
+  </div>
+
+
+  
+    <section id="footer">
+      <div class="container">
+        <div class="row text-center text-xs-center text-sm-left text-md-left">
+          <div class="col-xs-12 col-sm-4 col-md-4">
+            <h5>Menu</h5>
+            <ul class="list-unstyled quick-links">
+              <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Home</a></li>
+              <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>About</a></li>
+              <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Service</a></li>
+              <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Board</a></li>
+            </ul>
+          </div>
+          <div class="col-xs-12 col-sm-4 col-md-4">
+            <ul class="list-unstyled quick-links">
+              <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>남성의류</a></li>
+              <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>여성의류</a></li>
+              <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>귀금속/악세사리</a></li>
+              <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>PC/모바일</a></li>
+              <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>가전제품</a></li>
+            </ul>
+          </div>
+          <div class="col-xs-12 col-sm-4 col-md-4">
+            <ul class="list-unstyled quick-links">
+              <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>게임</a></li>
+              <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>스포츠/레저</a></li>
+              <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>도서</a></li>
+              <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>자동차/오토바이</a></li>
+              <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>기타</a></li>
+            </ul>
+          </div>
+          
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+            <ul class="list-unstyled list-inline social text-center">
+              <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-facebook"></i></a></li>
+              <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-twitter"></i></a></li>
+              <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-instagram"></i></a></li>
+              <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-google-plus"></i></a></li>
+              <li class="list-inline-item"><a href="javascript:void();" target="_blank"><i class="fa fa-envelope"></i></a></li>
+            </ul>
+          </div>
+          </hr>
+        </div>	
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+            <p><u><a href="https://www.nationaltransaction.com/">National Transaction Corporation</a></u> is a Registered MSP/ISO of Elavon, Inc. Georgia [a wholly owned subsidiary of U.S. Bancorp, Minneapolis, MN]</p>
+            <p class="h6">&copy All right Reversed.<a class="text-green ml-2" href="https://www.sunlimetech.com" target="_blank">Sunlimetech</a></p>
+          </div>
+          </hr>
+        </div>	
+      </div>
+    </section>
+    
 
 </body>
+
+
 
 </html>

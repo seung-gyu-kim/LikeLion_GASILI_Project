@@ -66,10 +66,10 @@ def create(request) :
             print("로그인 안됨")
         
 
-
         # 보완 - 로그인 상태 아닐 경우,
         #if(request.user.username  is None)
-        boards.userId = request.user.id 
+        boards.userId = request.user.id
+        boards.userName = request.user.nickname
         ## 수정필요 ## 
        
         boards.save()
@@ -113,3 +113,6 @@ def createcomment(request, board_id):
         comments.save()
 
         return redirect('test', board_id)
+
+def chart(request, board_id):
+    return render(request, 'chart.html')
