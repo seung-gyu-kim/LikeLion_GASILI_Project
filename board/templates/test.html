@@ -31,6 +31,7 @@
         
 
         <a href="{% url 'board' %}">글목록</a>
+        <a href="{% url 'chart' board.id %}">차트보기</a>
     </div>
 
     <br>
@@ -42,7 +43,7 @@
     {% csrf_token %}    
         <div>
             <textarea class="form-control" id="exampleFormControlTextarea1" name="text" rows="3"></textarea> 
-            <h4>가격 : </h4> <input type="number" name="price" min="1" max="10">  
+            <h4>가격 : </h4> <input type="number" name="price" min="1" max="10000000">  
         </div>
         <br>
         <div align='right'>
