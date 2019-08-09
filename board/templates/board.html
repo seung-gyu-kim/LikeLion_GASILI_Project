@@ -26,30 +26,37 @@
                 <td style="text-align: center;">{{board.date}}</td>
                 </tr>
 
-                {%endfor%} 
-                </tbody>
-                </table>
-            </div>
-        
-            <div >
-                <div >
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination">
-                            {%if posts.has_previous%}
-                            <li class="page-item">
-                            <a class="page-link" href="?page={{posts.previous_page_number}}" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                            </li>
-                            {% else %}
-                            <li class="page-item disabled">
-                                    <a class="page-link" href="" aria-label="Previous">
-                                        <span aria-disabled="true">&laquo;</span>
-                                    </a>
-                                    </li>
-                            
-                            {%endif%}
-                            
+
+        {%endfor%} 
+        </tbody>
+    </table>
+    </div>
+
+    <div >
+        <div >
+                {%if posts.has_previous%}
+                <a href="?page=1">First</a>
+                <a href="?page={{posts.previous_page_number}}">Previous</a>
+                {%endif%}
+                
+                <span>{{posts.number}}</span>
+                <span>of</span>
+                <span>{{posts.paginator.num_pages}}</span>
+                
+                {%if posts.has_next%}
+                <a href="?page={{posts.next_page_number}}">Next</a>
+                <a href="?page={{posts.paginator.num_pages}}">Last</a>
+                {%endif%}
+        </div>
+
+        {% if user.is_authenticated %}
+        <a href = "{% url 'board_new' %}"><button type="button" class="btn btn-danger" style="float: right;">글쓰기</button></a>
+        {% else %}
+        <button type="button" onclick="alert('로그인을 해주세요'); location.replace('../accounts/login/');"   class="btn btn-danger" style="float: right;">글쓰기</button>
+        {% endif %}
+        <div style="margin-bottom:60px;"></div>
+        </div>
+
 
                             {% for i in p_range %}
                             
