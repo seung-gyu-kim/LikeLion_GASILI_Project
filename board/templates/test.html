@@ -7,76 +7,69 @@
     }
 </style>
 
-    <div class="container" style="padding-top: 200px;">
-        <h2>{{ board.title }}</h2>
-        <p>{{ board.date }}</p>
+<div class="container" style="padding-top: 200px;">
+    <h2>{{ board.title }}</h2>
+    <p>{{ board.date }}</p>
 
-        <br>
-        <br>
-        <div class="container" style=" margin:0,25px,25px,25px; width:100%;">
-            <section id="recently">
-                <div class="col">
-                    <div class="row">
-                        <div style="border-radius: 5px; border:1px dashed rgb(91,155,213); padding: 15px; width:100%; ">
-                            <p>{{ board.body }}</p>
-                        </div>
+    <br>
+    <br>
+    <div class="container" style=" margin:0,25px,25px,25px; width:100%;">
+        <section id="recently">
+            <div class="col">
+                <div class="row">
+                    <div style="border-radius: 5px; border:1px dashed rgb(91,155,213); padding: 15px; width:100%; ">
+                        <p>{{ board.body }}</p>
                     </div>
                 </div>
-            </section>
-        </div>
-
-        <br>
-        <br>
-
-        
-
-        <a href="{% url 'board' %}">글목록</a>
-        <a href="{% url 'chart' board.id %}">차트보기</a>
+            </div>
+        </section>
     </div>
 
     <br>
     <br>
 
-    <h4> 댓글</h4>
 
-    <form method="POST" action='{% url "createcomment" board.id %}'>
-    {% csrf_token %}    
-        <div>
-            <textarea class="form-control" id="exampleFormControlTextarea1" name="text" rows="3"></textarea> 
-            <h4>가격 : </h4> <input type="number" name="price" min="1" max="10000000">  
-        </div>
-        <br>
-        <br>
 
-        <h4> 댓글</h4>
+    <a href="{% url 'board' %}">글목록</a>
+    <a href="{% url 'chart' board.id %}">차트보기</a>
+</div>
 
-        <form method="POST" action='{% url "createcomment" board.id %}'>
-        {% csrf_token %}    
-            <div>
-                <textarea class="form-control" id="exampleFormControlTextarea1" name="text" rows="3"></textarea> 
-                <h4>가격 : </h4> <input type="number" name="price" min="1" max="10">  
-            </div>
-            <br>
-            <div align='right'>
-                <button type="submit" class="btn btn-primary">등록</button>
-            </div>
-        </form>
+<br>
+<br>
 
-        <hr border='1'>
-        {% for comments in comment.all %}
-            <div class="comment">
-                <div class="date">
-                    <strong>{{ comments.author }}</strong>  
-                    {{ comments.created_date }}
-                </div>
-                <p>{{ comments.text|linebreaks }}</p>
-                <p>제시한 가격 : {{comments.price}}</p>   
-            </div>
-            <hr border='1'>
-        {% empty %}
-            <p>No comments here yet :(</p>
-        {% endfor %}
+<h4> 댓글</h4>
+
+<form method="POST" action='{% url "createcomment" board.id %}'>
+    {% csrf_token %}
+    <div>
+        <textarea class="form-control" id="exampleFormControlTextarea1" name="text" rows="3"></textarea>
+        <h4>가격 : </h4> <input type="number" name="price" min="1" max="10000000">
     </div>
+    <br>
+    <div align='right'>
+        <button type="submit" class="btn btn-primary">등록</button>
+    </div>
+    <br>
+    <br>
+</form>
 
-    
+<hr border='1'>
+{% for comments in comment.all %}
+<div class="comment">
+    <div class="date">
+        <strong>{{ comments.author }}</strong>
+        {{ comments.created_date }}
+    </div>
+    <p>{{ comments.text|linebreaks }}</p>
+    <p>제시한 가격 : {{comments.price}}</p>
+</div>
+<hr border='1'>
+{% empty %}
+<p>No comments here yet :(</p>
+{% endfor %}
+</div>
+
+<div style="margin-bottom: 150px;"></div>
+
+
 {% endblock %}
