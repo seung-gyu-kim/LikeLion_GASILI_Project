@@ -104,3 +104,6 @@ def createcomment(request, board_id):
         comments.save()
 
         return redirect('test', board_id)
+
+def chart(request, board_id):
+    return render(request, 'chart.html')
