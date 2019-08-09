@@ -4,57 +4,84 @@
     {% block content %}
     
     
-    <h1 style="text-align: center;">GaSiRi Let's get it! man~</h1>
+    <div class="container" style="padding-top: 100px;">    
+        <h1 style="text-align: center;">GaSiRi</h1>
 
-    <div style="padding-top: 200px;">
-    <table class="table table-hover">
-        <thead>
-        <tr style="text-align: center;">
-            <th scope="col">순번</th>
-            <th scope="col">글제목</th>
-            <th scope="col">작성자</th>
-            <th scope="col">작성일자</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for board in posts %}
-        <tr onclick="location.href='{% url 'test' board.id %}'"  style="text-align: center;">
-            <th scope="row">{{board.id}}</th>
-            <td>{{board.title}}</td>
-            <td>{{board.userName}}</td>
-            <td>{{board.date}}</td>
-        </tr>
+            <div style="padding-top: 100px;">
+                <table class="table table-hover">
+                <thead>
+                <tr>
+                <th scope="col" style="text-align: center;">순번</th>
+                <th scope="col" style="text-align: center;">글제목</th>
+                <th scope="col" style="text-align: center;">작성자</th>
+                <th scope="col" style="text-align: center;">작성일자</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for board in posts %}
+                <tr onclick="location.href='{% url 'test' board.id %}'">
+                <th scope="row" style="text-align: center;">{{board.id}}</th>
+                <td style="text-align: center;">{{board.title}}</td>
+                <td style="text-align: center;">{{board.userName}}</td>
+                <td style="text-align: center;">{{board.date}}</td>
+                </tr>
 
-        {%endfor%} 
-        </tbody>
-    </table>
-    </div>
-
-    <div >
-        <div >
-                {%if posts.has_previous%}
-                <a href="?page=1">First</a>
-                <a href="?page={{posts.previous_page_number}}">Previous</a>
-                {%endif%}
-                
-                <span>{{posts.number}}</span>
-                <span>of</span>
-                <span>{{posts.paginator.num_pages}}</span>
-                
-                {%if posts.has_next%}
-                <a href="?page={{posts.next_page_number}}">Next</a>
-                <a href="?page={{posts.paginator.num_pages}}">Last</a>
-                {%endif%}
-        </div>
-
-        {% if user.is_authenticated %}
-        <a href = "{% url 'board_new' %}"><button type="button" class="btn btn-danger" style="float: right;">글쓰기</button></a>
-        {% else %}
-        <button type="button" onclick="alert('로그인을 해주세요'); location.replace('../accounts/login/');"   class="btn btn-danger" style="float: right;">글쓰기</button>
-        {% endif %}
+                {%endfor%} 
+                </tbody>
+                </table>
+            </div>
         
-    </div>
+            <div >
+                <div >
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            {%if posts.has_previous%}
+                            <li class="page-item">
+                            <a class="page-link" href="?page={{posts.previous_page_number}}" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                            </li>
+                            {% else %}
+                            <li class="page-item disabled">
+                                    <a class="page-link" href="" aria-label="Previous">
+                                        <span aria-disabled="true">&laquo;</span>
+                                    </a>
+                                    </li>
+                            
+                            {%endif%}
+                            
 
+                            {% for i in p_range %}
+                            
+                            {% if i == page %}
+                            <li class="page-item active"><a class="page-link" href="?page={{i}}">{{i}}</a></li>
+                            {% else %}
+                            <li class="page-item"><a class="page-link" href="?page={{i}}">{{i}}</a></li>
+                            {% endif %}
+                            {% endfor %}
+
+                            {%if posts.has_next%}
+                            <li class="page-item">
+                            <a class="page-link" href="?page={{posts.next_page_number}}" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                            </li>
+                            {% else %}
+                            <li class="page-item disabled">
+                                    <a class="page-link" href="" aria-label="Next">
+                                        <span aria-disabled="true">&raquo;</span>
+                                    </a>
+                                    </li>
+                            {%endif%}
+                        </ul>
+                    </nav>
+                </div> 
+                {% if user.is_authenticated %}
+                <a href = "{% url 'board_new' %}"><button type="button" class="btn btn-danger" style="float: right;">글쓰기</button></a>
+                {% else %}
+                <button type="button" onclick="alert('로그인을 해주세요'); location.replace('../accounts/login/');"   class="btn btn-danger" style="float: right;">글쓰기</button>
+                {% endif %}
+            </div>
     
-
+    </div>  
     {% endblock %}
