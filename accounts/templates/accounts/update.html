@@ -10,7 +10,14 @@
                 <div class="col">
                     <div class="row">
                         <div style="border-radius: 5px; border:1px dashed rgb(91,155,213); width:100%; ">
-
+                            <h1 style="text-align: center;">내가 쓴 게시글</h1>
+                            <div style="padding-top: 20px;"></div>
+                            <div class="flexbox">
+                                <div class="item"><a href="{% url 'update'%}">사용자정보</a></div>
+                                <div class="item"><a href="{% url 'mypageComment'%}">내가 단 댓글</a></div>
+                                <div class="item"><a href="{% url 'mypageBlog'%}">내가 쓴 게시글</a></div>
+                            </div>
+                            
                             {% if error %}
                             {{ error }}
                             <br>
