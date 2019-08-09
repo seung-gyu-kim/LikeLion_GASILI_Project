@@ -245,6 +245,7 @@ padding : 50px 0;
 .banner-text h2:after{content:" "; width:100px; height:5px; background:#FFF; display:block; margin-top:20px; border-radius:3px;}
 .banner-text p{color:#fff;}
 
+
   </style>
 </head>
 
@@ -269,7 +270,7 @@ padding : 50px 0;
           </li>
           {% if user.is_authenticated %}
           <li class="nav-item">
-              <a class="nav-link"  href="{% url 'mypageBlog' %}" style="margin:0 60px 0 60px;" style="padding:0;">Mypage</a>
+              <a class="nav-link"  href="{% url 'mypageBlog' %}" style="margin:0 60px 0 60px; padding:0;">Mypage</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="javascript:{document.getElementById('logout').submit()}" style="padding:0;">Logout</a>

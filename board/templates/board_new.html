@@ -7,13 +7,20 @@
     <div class="containerleft">
     </div>
     <div class="containerbody">
-        <div class="board-new-container" >
-            <section id="recently">
-                <div class="col">
+            <section class="login-block">
+                    <div class="bodycontainer">
                     <div class="row">
-                        <div class="classframe">
+                        <div class="col login-sec">
+                            <h2 class="text-center" style="font-family: 'Gugi', cursive; ">게시물 등록</h2>
+                            
+                            <div class="container">
+                                    <section id="recently">
+                                        <div class="col">
+                                            <div class="row">
+                                                <div style="border-radius: 5px; border:2px dashed rgb(255, 118, 99); width:100%; ">
+                                                   
                         
-                            <h1>게시물 등록</h1>
+                            
                             {% if error %}
                             <script> alert('모든 항목을 입력해주세요.');</script>
 
@@ -21,86 +28,112 @@
                             <form method="POST" action="{% url 'board_create'%}" enctype="multipart/form-data" name = "form1">
                                 {% csrf_token %}
                                 <div class="mb-3">
+                                    <div class="row" style="height:50px;"></div>
                                     <div id="topContent">
-                                            상품 구매 가격 
-                                            <input class="form-control" name="order_price" type="text" value="">
-                                            카테고리
-                                            <select class="form-control" name="category" >
-                                              <option value="남성의류">남성의류</option>
-                                              <option value="여성의류">여성의류</option>
-                                              <option value="귀금속/액세서리">귀금속/액세서리</option>
-                                              <option value="PC/모바일">PC/모바일</option>
-                                              <option value="게임">게임</option>
-                                              <option value="스포츠/레저">스포츠/레저</option>
-                                              <option value="도서">도서</option>
-                                              <option value="자동차/오토바이">자동차/오토바이</option>
-                                              <option value="기타">기타</option>
-                                            </select>
+                                    <div class="form-group row">
+                                        <label class="col-sm-4 col-form-label textfont" >상품 구매 가격 : </label>
+                                            <div class="col-5">
+                                              <input class="form-control" placeholder="price" name="order_price" type="text" value="">
+                                            </div>
+                                        </div>
+                                        <br>
+                                        
+                                    <div class="form-group row">
+                                            <label class="col-sm-4 col-form-label textfont" >카테고리 : </label>
+                                                <div class="col-5">
+                                                    <select multiple class="form-control" name="category" >
+                                                            <option value="남성의류" >남성의류</option>
+                                                            <option value="여성의류">여성의류</option>
+                                                            <option value="귀금속/액세서리">귀금속/액세서리</option>
+                                                            <option value="PC/모바일">PC/모바일</option>
+                                                            <option value="게임">게임</option>
+                                                            <option value="스포츠/레저">스포츠/레저</option>
+                                                            <option value="도서">도서</option>
+                                                            <option value="자동차/오토바이">자동차/오토바이</option>
+                                                            <option value="기타">기타</option>
+                                                      </select>
+                                                </div>
+                                            </div>
+                                        </div>       
+                                    <br>
+                                    <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label textfont" >본문을 작성해주세요! </label>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-10 col-form-label" style=" margin-left:55px;">
+                                            <input type="text" class="form-control" name="title" placeholder="게시물 제목을 입력해주세요."><br> 
+                                        </div>
+                                    
+                                        <div class="col-10 col-form-label" style=" margin-left:55px;">
+                                            <textarea class="form-control"  rows="15" name="body" placeholder="본문 내용을 입력해주세요"></textarea>
+                                        </div>
                                     </div>
                                     <br>
-                                    본문을 작성해주세요!
-                                    <input type="text" class="form-control" name="title" placeholder="게시물 제목을 입력해주세요."><br>
-                                    <textarea class="form-control"  rows="15" name="body" placeholder="본문 내용을 입력해주세요"></textarea>
                                     <div class="flexbox">
-                                        <div class="item"><input type="button" class="btn btn-primary" value="파일추가"  onclick="addFile()" id="fileAdd" ></div>
-                                        <div class="item"><input type="button" class="btn btn-primary" value="파일삭제"  onclick="removeFile()" id="fileRemove"></div>
+                                        <div class="item"><input type="button" style="width:70px; height:25px; background:rgb(101, 212, 27); border:1.5px solid rgb(101, 212, 27); font-family: 'Gugi', cursive; font-size:13px;"  class="btn btn-primary" value="파일추가"  onclick="addFile()" id="fileAdd" ></div>
+                                        <div class="item"><input type="button" style="width:70px; height:25px; background:rgb(101, 212, 27); border:1.5px solid rgb(101, 212, 27); font-family: 'Gugi', cursive; font-size:13px;" class="btn btn-primary" value="파일삭제"  onclick="removeFile()" id="fileRemove"></div>
                                     </div>
-
-                                    
-                                    
-                                    <div class="area-file">
-                                        <div name="filediv">
-                                        <input type="file" name="file" id="file"/>
+                                   
+                                    <div class="form-group row">
+                                    <div class="col-10 col-form-label" style=" margin-left:55px;">
+                                            <div class="area-file">
+                                                    <div name="filediv">
+                                                    <input type="file" name="file" id="file"/>
+                                                    </div>
+            
+                                                    <table id="preset1" style="display:none;" name="filetable1">
+                                                        <tr name="tr_attach_file">
+                                                            <td>
+                                                                <input type="file" name="file1" id="file1" />
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+            
+                                                    <table id="preset2" style="display:none;" name="filetable2">
+                                                        <tr name="tr_attach_file">
+                                                            <td>
+                                                                <input type="file" name="file2" id="file2"/>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+            
+                                                    <table id="preset3" style="display:none;" name="filetable3">
+                                                        <tr name="tr_attach_file">
+                                                            <td>
+                                                                <input type="file" name="file3" id="file3"/>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+            
+                                                    <table id="preset4" style="display:none;" name="filetable4">
+                                                        <tr name="tr_attach_file">
+                                                            <td>
+                                                                <input type="file" name="file4" id="file4"/>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+            
+                                                    <table id="preset5" style="display:none;" name="filetable5">
+                                                        <tr name="tr_attach_file">
+                                                            <td>
+                                                                <input type="file" name="file5" id="file5"/>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
                                         </div>
 
-                                        <table id="preset1" style="display:none;" name="filetable1">
-                                            <tr name="tr_attach_file">
-                                                <td>
-                                                    <input type="file" name="file1" id="file1" />
-                                                </td>
-                                            </tr>
-                                        </table>
-
-                                        <table id="preset2" style="display:none;" name="filetable2">
-                                            <tr name="tr_attach_file">
-                                                <td>
-                                                    <input type="file" name="file2" id="file2"/>
-                                                </td>
-                                            </tr>
-                                        </table>
-
-                                        <table id="preset3" style="display:none;" name="filetable3">
-                                            <tr name="tr_attach_file">
-                                                <td>
-                                                    <input type="file" name="file3" id="file3"/>
-                                                </td>
-                                            </tr>
-                                        </table>
-
-                                        <table id="preset4" style="display:none;" name="filetable4">
-                                            <tr name="tr_attach_file">
-                                                <td>
-                                                    <input type="file" name="file4" id="file4"/>
-                                                </td>
-                                            </tr>
-                                        </table>
-
-                                        <table id="preset5" style="display:none;" name="filetable5">
-                                            <tr name="tr_attach_file">
-                                                <td>
-                                                    <input type="file" name="file5" id="file5"/>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                </div>
-
-                                <div class="confirmOrCancel">
-                                        <input class="btn btn-primary" type="submit" value="등록">
-                                        <a href="./" class="btn btn-primary">취소</a>
-                                        
+                                    </div>    
+                                    
                                 </div>
                                 
+                                
+                                
+                                <div class="text-center" style="margin:30px 0 50px 0;">
+                                        <input class="btn btn-primary" style="width:200px; height:40px; background:#DE6262; border:1.5px solid #DE6262; font-family: 'Gugi', cursive; font-size:20px;" type="submit" value="등록">
+                                        <a href="./" style="width:200px; height:40px; background:#DE6262; border:1.5px solid #DE6262; font-family: 'Gugi', cursive; font-size:20px;" class="btn btn-primary">취소</a>
+                                    </div>
+
                             </form>
                             
 
@@ -176,11 +209,19 @@
                             </form>
                             -->
                             
-                        </div>
+ 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                         </div>
                     </div>
-                </div>
-            </section>
-        </div>
+
+                    
+                </section>
+
+        
     </div>
     <div class="containerright"></div>
 </div>

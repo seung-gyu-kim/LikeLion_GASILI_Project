@@ -58,28 +58,24 @@ body {
     border:1px dashed rgb(91,155,213); 
     width:100%; 
 }
-.mb-3 #topContent {
-    width: 200px;
-}
+
 .mb-3 .form-control {
     margin-bottom: 5px;
 }
 .area-file {
     border:1px solid black; 
-    height: 200px;  
+    height: 100px;  
     overflow:scroll;
 }
 
 .area-file input {
     margin: 10px 10px;
 }
-.confirmOrCancel {
-    text-align: center;
-}
+
 .flexbox {
     display: flex;
     flex-direction: row-reverse;
-    margin: 25px 10px 10px 25px;
+    padding-right: 10%;
 }
 .flexbox .item {
     margin-left: 1%;
