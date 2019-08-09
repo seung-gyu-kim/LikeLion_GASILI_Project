@@ -29,11 +29,10 @@
   <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
   <!--fontstylelink-->
-  <link href="https://fonts.googleapis.com/css?family=Gamja+Flower&display=swap&subset=korean" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Single+Day&display=swap&subset=korean" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Hi+Melody&display=swap&subset=korean" rel="stylesheet">
-
   
+  <link href="https://fonts.googleapis.com/css?family=Gugi&display=swap&subset=korean" rel="stylesheet">
+
+
 <!--footer-->
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
@@ -134,6 +133,15 @@
   font-size:15px;
 }
 
+.topletter{
+  font-family: 'Gugi', cursive; 
+  font-size:80px; 
+  text-align:center;
+}
+
+.textfont{
+  font-size:15px; font-family: 'Gugi', cursive; margin-left:60px;
+}
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
 
@@ -215,6 +223,28 @@ section .section-title {
 }
 }
 
+@import url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
+.login-block{
+float:left;
+width:100%;
+padding : 50px 0;
+}
+.banner-sec{background:url(https://static.pexels.com/photos/33972/pexels-photo.jpg)  no-repeat left bottom; background-size:cover; min-height:500px; border-radius: 0 10px 10px 0; padding:0;}
+.bodycontainer{background:#fff; border-radius: 10px; box-shadow:15px 20px 0px rgba(0,0,0,0.1); margin:30px 55px 30px 15px;}
+.carousel-inner{border-radius:0 10px 10px 0;}
+.carousel-caption{text-align:left; left:5%;}
+.login-sec{padding: 50px 30px; position:relative;}
+.login-sec .copy-text{position:absolute; width:80%; bottom:20px; font-size:13px; text-align:center;}
+.login-sec .copy-text i{color:#FEB58A;}
+.login-sec .copy-text a{color:#E36262;}
+.login-sec h2{margin-bottom:30px; font-weight:800; font-size:30px; color: #DE6262;}
+.login-sec h2:after{content:" "; width:100px; height:5px; background:#FEB58A; display:block; margin-top:20px; border-radius:3px; margin-left:auto;margin-right:auto}
+.btn-login{background: #DE6262; color:#fff; font-weight:600;}
+.banner-text{width:70%; position:absolute; bottom:40px; padding-left:20px;}
+.banner-text h2{color:#fff; font-weight:600;}
+.banner-text h2:after{content:" "; width:100px; height:5px; background:#FFF; display:block; margin-top:20px; border-radius:3px;}
+.banner-text p{color:#fff;}
+
   </style>
 </head>
 
@@ -235,7 +265,7 @@ section .section-title {
           </li>
           {% if user.is_authenticated %}
           <li class="nav-item">
-              <a class="nav-link"  href="{% url 'update' %}" style="margin:0 60px 0 60px;" style="padding:0;">Mypage</a>
+              <a class="nav-link"  href="{% url 'update' %}" style="margin:0 60px 0 60px; padding:0;">Mypage</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="javascript:{document.getElementById('logout').submit()}" style="padding:0;">Logout</a>
