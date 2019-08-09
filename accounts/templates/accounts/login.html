@@ -6,30 +6,57 @@
     <div class="containerleft">
     </div>
     <div class="containerbody">
-        <div class="container" style="margin:0,25px,25px,25px; width:100%;">
-            <section id="recently">
-                <div class="col">
+
+            <section class="login-block">
+                    <div class="bodycontainer">
                     <div class="row">
-                        <div style="border-radius: 5px; border:1px dashed rgb(91,155,213); width:100%; ">
-                            {% if error %}
-                            {{ error }}
-                            <br>
-                            <br>
-                            {% endif %}
-
-                            <h1>Sign in</h1>
-
-                            <form method="POST" action="{% url 'login'%}">
-                                {% csrf_token %}
-                                <br>아이디(ID): <input name="username" type="text" value=""><br>
-                                <br>비밀번호(Password): <input name="password" type="password" value=""><br>
-                                <br><input class="btn btn-primary" type="submit" value="Sign in">
-                            </form>
-                        </div>
+                        <div class="col login-sec">
+                            <h2 class="text-center">Sign In</h2>
+                            
+                            <div class="container">
+                                    <section id="recently">
+                                        <div class="col">
+                                            <div class="row">
+                                                <div style="border-radius: 5px; border:2px dashed rgb(255, 118, 99); width:100%; ">
+                                                        {% if error %}
+                                                         {{ error }}
+                                                         <br>
+                                                         <br>
+                                                         {% endif %}
+                                                         <form method="POST" action="{% url 'login'%}">
+                                                            {% csrf_token %}
+                                                            <div class="row" style="height:50px;"></div>
+                                                                <div class="form-group row">
+                                                                  <label class="col-sm-4 col-form-label textfont" >아이디(ID): </label>
+                                                                  <div class="col-5">
+                                                                    <input class="form-control" placeholder="id" name="username" type="text" value="">
+                                                                  </div>
+                                                                </div>
+                                                                <br>
+                                                                <div class="form-group row">
+                                                                        <label class="col-sm-4 col-form-label textfont" >비밀번호(Password): </label>
+                                                                        <div class="col-5">
+                                                                          <input class="form-control" placeholder="passward"name="password" type="password" value="">
+                                                                        </div>
+                                                                      </div>
+                                                                      <br>
+                                                                 
+                                                                <div class="text-center" style="margin:30px 0 50px 0;">
+                                                                    <input class="btn btn-primary" style="width:200px; height:40px; background:#DE6262; border:1.5px solid #DE6262; font-family: 'Gugi', cursive; font-size:20px;" type="submit" value="Sign In">
+                                                                </div>
+                                                             </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                         </div>
                     </div>
-                </div>
-            </section>
-        </div>
+
+                    
+                </section>
+
+        
     </div>
     <div class="containerright"></div>
     
