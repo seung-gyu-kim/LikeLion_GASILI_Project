@@ -1,58 +1,227 @@
 {% extends 'base.html' %}
 
+{% load static %}
 {% block content %}
-<div class="container-fluid row" style="width:100%; margin:0; padding:0;">
+
+<div class="board-new-container row">
     <div class="containerleft">
     </div>
     <div class="containerbody">
-        <div class="container" style="margin:0,25px,25px,25px; width:100%;">
-            <section id="recently">
-                <div class="col">
+            <section class="login-block">
+                    <div class="bodycontainer">
                     <div class="row">
-                        <div style="border-radius: 5px; border:1px dashed rgb(91,155,213); width:100%; ">
+                        <div class="col login-sec">
+                            <h2 class="text-center" style="font-family: 'Gugi', cursive; ">게시물 등록</h2>
+                            
+                            <div class="container">
+                                    <section id="recently">
+                                        <div class="col">
+                                            <div class="row">
+                                                <div style="border-radius: 5px; border:2px dashed rgb(255, 118, 99); width:100%; ">
+                                                   
                         
-                            <h1>게시물 등록</h1>
+                            
+                            {% if error %}
+                            <script> alert('모든 항목을 입력해주세요.');</script>
 
-                            <form method="POST" action="{% url 'board_create'%}" enctype="multipart/form-data">
+                            {% endif %}
+                            <form method="POST" action="{% url 'board_create'%}" enctype="multipart/form-data" name = "form1">
                                 {% csrf_token %}
                                 <div class="mb-3">
-                                    <div  style=" width: 200px;">
-                                            상품 구매 가격 <input class="form-control" name="order_price" type="text" value="" style="margin-bottom: 5px;">
-                                            카테고리
-                                            <select class="form-control" name="category" >
-                                              <option value="남성의류">남성의류</option>
-                                              <option value="여성의류">여성의류</option>
-                                              <option value="귀금속/액세서리">귀금속/액세서리</option>
-                                              <option value="PC/모바일">PC/모바일</option>
-                                              <option value="게임">게임</option>
-                                              <option value="스포츠/레저">스포츠/레저</option>
-                                              <option value="도서">도서</option>
-                                              <option value="자동차/오토바이">자동차/오토바이</option>
-                                              <option value="기타">기타</option>
-                                            </select>
+                                    <div class="row" style="height:50px;"></div>
+                                    <div id="topContent">
+                                    <div class="form-group row">
+                                        <label class="col-sm-4 col-form-label textfont" >상품 구매 가격 : </label>
+                                            <div class="col-5">
+                                              <input class="form-control" placeholder="price" name="order_price" type="text" value="">
+                                            </div>
+                                        </div>
+                                        <br>
+                                        
+                                    <div class="form-group row">
+                                            <label class="col-sm-4 col-form-label textfont" >카테고리 : </label>
+                                                <div class="col-5">
+                                                    <select multiple class="form-control" name="category" >
+                                                            <option value="남성의류" >남성의류</option>
+                                                            <option value="여성의류">여성의류</option>
+                                                            <option value="귀금속/액세서리">귀금속/액세서리</option>
+                                                            <option value="PC/모바일">PC/모바일</option>
+                                                            <option value="게임">게임</option>
+                                                            <option value="스포츠/레저">스포츠/레저</option>
+                                                            <option value="도서">도서</option>
+                                                            <option value="자동차/오토바이">자동차/오토바이</option>
+                                                            <option value="기타">기타</option>
+                                                      </select>
+                                                </div>
+                                            </div>
+                                        </div>       
+                                    <br>
+                                    <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label textfont" >본문을 작성해주세요! </label>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-10 col-form-label" style=" margin-left:55px;">
+                                            <input type="text" class="form-control" name="title" placeholder="게시물 제목을 입력해주세요."><br> 
+                                        </div>
+                                    
+                                        <div class="col-10 col-form-label" style=" margin-left:55px;">
+                                            <textarea class="form-control"  rows="15" name="body" placeholder="본문 내용을 입력해주세요"></textarea>
+                                        </div>
                                     </div>
                                     <br>
-                                    본문을 작성해주세요!
-                                    <input type="text" class="form-control" name="title" placeholder="게시물 제목을 입력해주세요."><br>
-                                    <textarea class="form-control"  rows="15" name="body" placeholder="본문 내용을 입력해주세요"></textarea>
+                                    <div class="flexbox">
+                                        <div class="item"><input type="button" style="width:70px; height:25px; background:rgb(101, 212, 27); border:1.5px solid rgb(101, 212, 27); font-family: 'Gugi', cursive; font-size:13px;"  class="btn btn-primary" value="파일추가"  onclick="addFile()" id="fileAdd" ></div>
+                                        <div class="item"><input type="button" style="width:70px; height:25px; background:rgb(101, 212, 27); border:1.5px solid rgb(101, 212, 27); font-family: 'Gugi', cursive; font-size:13px;" class="btn btn-primary" value="파일삭제"  onclick="removeFile()" id="fileRemove"></div>
+                                    </div>
+                                   
+                                    <div class="form-group row">
+                                    <div class="col-10 col-form-label" style=" margin-left:55px;">
+                                            <div class="area-file">
+                                                    <div name="filediv">
+                                                    <input type="file" name="file" id="file"/>
+                                                    </div>
+            
+                                                    <table id="preset1" style="display:none;" name="filetable1">
+                                                        <tr name="tr_attach_file">
+                                                            <td>
+                                                                <input type="file" name="file1" id="file1" />
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+            
+                                                    <table id="preset2" style="display:none;" name="filetable2">
+                                                        <tr name="tr_attach_file">
+                                                            <td>
+                                                                <input type="file" name="file2" id="file2"/>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+            
+                                                    <table id="preset3" style="display:none;" name="filetable3">
+                                                        <tr name="tr_attach_file">
+                                                            <td>
+                                                                <input type="file" name="file3" id="file3"/>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+            
+                                                    <table id="preset4" style="display:none;" name="filetable4">
+                                                        <tr name="tr_attach_file">
+                                                            <td>
+                                                                <input type="file" name="file4" id="file4"/>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+            
+                                                    <table id="preset5" style="display:none;" name="filetable5">
+                                                        <tr name="tr_attach_file">
+                                                            <td>
+                                                                <input type="file" name="file5" id="file5"/>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                        </div>
 
-                                </div>
-                                <div style="text-align: center;">
-                                        <input class="btn btn-primary" type="submit" value="등록">
-                                        <a href="./" class="btn btn-primary">취소</a>
+                                    </div>    
+                                    
                                 </div>
                                 
+                                
+                                
+                                <div class="text-center" style="margin:30px 0 50px 0;">
+                                        <input class="btn btn-primary" style="width:200px; height:40px; background:#DE6262; border:1.5px solid #DE6262; font-family: 'Gugi', cursive; font-size:20px;" type="submit" value="등록">
+                                        <a href="./" style="width:200px; height:40px; background:#DE6262; border:1.5px solid #DE6262; font-family: 'Gugi', cursive; font-size:20px;" class="btn btn-primary">취소</a>
+                                    </div>
+
                             </form>
-                            <form enctype="multipart/form-data" action="" method="post"> <!-- Do not forget to add: enctype="multipart/form-data" -->
+                            
+
+                            <script>
+                            var count = 0;
+                            function removeFile() {
+                               
+                                
+                                switch (count) {
+                                    case 1 :
+                                        $("#file1").remove();
+                                        count--;
+                                        break;
+                                    case 2 :
+                                        $("#file2").remove();
+                                        count--;
+                                        break;
+                                    case 3 :
+                                        $("#file3").remove();
+                                        count--;
+                                        break;
+                                    case 4 :
+                                        $("#file4").remove();
+                                        count--;
+                                        break;
+                                    case 5 :
+                                        $("#file5").remove();
+                                        count--;
+                                        break;
+                                    case 6 :
+                                        $("#file5").remove();
+                                        count = count - 2;
+                                        break;
+                                    default :
+                                        break
+                                }
+                                }
+
+                            
+                            function addFile(){
+                                if (count < 6 ) count++;
+                                
+                                switch (count) {
+                                    case 1 :
+                                        $('[name=form1] [name=filediv]:last').after( $('#preset1 tr').clone());
+                                        break;
+                                    case 2 :
+                                        $('[name=form1] [name=filetable1]:last').after( $('#preset2 tr').clone());
+                                        break;
+                                    case 3 :
+                                        $('[name=form1] [name=filetable2]:last').after( $('#preset3 tr').clone());
+                                        break;
+                                    case 4 :
+                                        $('[name=form1] [name=filetable3]:last').after( $('#preset4 tr').clone());
+                                        break;
+                                    case 5 :
+                                        $('[name=form1] [name=filetable4]:last').after( $('#preset5 tr').clone());
+                                        break;
+                                    default :
+                                        break
+                                }
+                                
+	                            // $('#preset tr').clone() : id=preset 에서 tr 요소 셀렉트 하여 복제 !!
+	                            // form1 안에 이름이 tr_attach_file 인것 중 마지막 것 다음에 추가합니다.
+	                            // 이렇게 하면 실행때 마다 동적으로 하나씩 추가됩니다.
+                            }
+                            </script>
+                            <!---
+                            <form enctype="multipart/form-data" action="" method="post"> 
                                 {% csrf_token %}
                                 {{ form }}
                                 <input type="submit" value="Save">
                             </form>
-                        </div>
+                            -->
+                            
+ 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                         </div>
                     </div>
-                </div>
-            </section>
-        </div>
+
+                    
+                </section>
+
+        
     </div>
     <div class="containerright"></div>
 </div>

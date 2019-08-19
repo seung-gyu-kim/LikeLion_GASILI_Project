@@ -1,3 +1,5 @@
+
+
 {% extends 'base.html' %}
 
 {% block content %}
@@ -5,39 +7,106 @@
     <div class="containerleft">
     </div>
     <div class="containerbody">
-        <div class="container" style="margin:0,25px,25px,25px; width:100%;">
-            <section id="recently">
-                <div class="col">
+        
+            <section class="login-block">
+                    <div class="bodycontainer">
                     <div class="row">
-                        <div style="border-radius: 5px; border:1px dashed rgb(91,155,213); width:100%; ">
-                            {% if error %}
-                            {{ error }}
-                            <br>
-                            <br>
-                            {% endif %}
-
-                            <h1>Sign Up!</h1>
-
-                            <form method="POST" action="{% url 'signup'%}">
-                                {% csrf_token %}
-                                <br>아이디(ID): <input name="username" type="text" value=""><br>
-                                <br>비밀번호(Password): <input name="password1" type="password" value=""><br>
-                                <br>비밀번호 확인(Confirm Password): <input name="password2" type="password" value=""><br>
-                                <br>성별(Gender): <INPUT TYPE=RADIO NAME="gender" VALUE="M"> 남성(Man)
-                                <INPUT TYPE=RADIO NAME="gender" VALUE="W"> 여성(Woman)<br>
-                                <br>성(Last Name):<input name="lastName" type="text" value=""><br>
-                                <br>이름(First Name): <input name="firstName" type="text" value=""><br>
-                                <br>생년월일(birthdate): <input name="birthdate" type="date" value=""><br>
-                                <br>닉네임(Nickname): <input name="nickName" type="text" value=""><br>
-                                <br>관리자아이디여부: <input name="is_superuser" type="checkbox" value="is_superuser"><br>
-                                <br>
-                                <input class="btn btn-primary" type="submit" value="Sign Up!">
-                            </form>
-                        </div>
+                        <div class="col login-sec">
+                            <h2 class="text-center">Sign Up</h2>
+                            
+                            <div class="container">
+                                    <section id="recently">
+                                        <div class="col">
+                                            <div class="row">
+                                                <div style="border-radius: 5px; border:2px dashed rgb(255, 118, 99); width:100%; ">
+                                                    {% if error %}
+                                                    {{ error }}
+                                                    <br>
+                                                    <br>
+                                                    {% endif %}
+                                                    <form method="POST" action="{% url 'signup'%}">
+                                                        {% csrf_token %}
+                                                                <div class="row" style="height:50px;"></div>
+                                                                <div class="form-group row">
+                                                                  <label class="col-sm-4 col-form-label textfont" >아이디(ID): </label>
+                                                                  <div class="col-5">
+                                                                    <input class="form-control" placeholder="username" name="username" type="username" value="">
+                                                                  </div>
+                                                                </div>
+                                                                <br>
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-4 col-form-label textfont" >비밀번호(Password): </label>
+                                                                        <div class="col-sm-5">
+                                                                            <input class="form-control" placeholder="패스워드를 입력하세요" name="password1" type="password" value="">
+                                                                        </div>
+                                                                </div>
+                                                                <br>
+                                                                <div class="form-group row">
+                                                                        <label class="col-sm-4 col-form-label textfont" >비밀번호 확인(Confirm PW): </label>
+                                                                            <div class="col-sm-5">
+                                                                                <input class="form-control" placeholder="패스워드를 확인합니다" name="password2" type="password" value="">
+                                                                            </div>
+                                                                </div>
+                                                                <br>
+                                                                <div class="form-group row">
+                                                                        <label class="col-sm-4 col-form-label textfont" >성별(Gender): </label>
+                                                                            <div class="col-sm-5">
+                                                                                <INPUT TYPE=RADIO NAME="gender" VALUE="M"> 남성(Man) <span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                                                                    <INPUT TYPE=RADIO NAME="gender" VALUE="W"> 여성(Woman)<br>
+                                                                            </div>
+                                                                </div>    
+                                                                <br>
+                                                                <div class="form-group row">
+                                                                        <label class="col-sm-4 col-form-label textfont" >성(Last Name): </label>
+                                                                            <div class="col-sm-5">
+                                                                                <input class="form-control"placeholder="성을 입력하세요"  name="lastName" type="text" value="">     
+                                                                            </div>
+                                                                </div>  
+                                                                <br>
+                                                                <div class="form-group row">
+                                                                        <label class="col-sm-4 col-form-label textfont" >이름(First Name): </label>
+                                                                            <div class="col-sm-5">
+                                                                                <input class="form-control" placeholder="이름을 입력하세요"name="firstName" type="text" value="">
+                                                                            </div>
+                                                                </div> 
+                                                                <br>
+                                                                <div class="form-group row">
+                                                                        <label class="col-sm-4 col-form-label textfont" >생년월일(birthdate): </label>
+                                                                            <div class="col-sm-5">
+                                                                                <input class="form-control" name="birthdate" type="date" value="">
+                                                                            </div>
+                                                                </div> 
+                                                                <br>
+                                                                <div class="form-group row">
+                                                                        <label class="col-sm-4 col-form-label textfont" >닉네임(Nickname): </label>
+                                                                            <div class="col-sm-5">
+                                                                                <input class="form-control" placeholder="닉네임을 입력하세요" name="nickName" type="text" value="">
+                                                                            </div>
+                                                                </div> 
+                                                                <br>
+                                                                <div class="form-group row">
+                                                                        <label class="col-sm-4 col-form-label textfont" >관리자아이디여부: </label>
+                                                                            <div class="col-sm-5">
+                                                                                <input name="is_superuser" type="checkbox" value="is_superuser">
+                                                                            </div>
+                                                                </div> 
+                                                                <br>
+                                                        <div class="text-center" style="margin:30px 0 50px 0;">
+                                                        <input class="btn btn-primary" style="width:200px; height:40px; background:#DE6262; border:1.5px solid #DE6262; font-family: 'Gugi', cursive; font-size:20px;" type="submit" value="Sign Up">
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                         </div>
                     </div>
-                </div>
-            </section>
-        </div>
+
+                    
+                </section>
+
+         
     </div>
     <div class="containerright"></div>
 </div>
